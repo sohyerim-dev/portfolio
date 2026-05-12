@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>소혜림 | Frontend Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="scene">
+      <div class="file-wrapper">
+        <!-- INDEX TABS -->
+        <nav class="index-tabs" aria-label="섹션 탭">
+          <button class="idx-tab active" data-target="intro">
+            <span class="tab-num">00</span>
+            <span class="tab-txt">COVER</span>
+          </button>
+          <button class="idx-tab" data-target="about">
+            <span class="tab-num">01</span>
+            <span class="tab-txt">소개</span>
+          </button>
+          <button class="idx-tab" data-target="projects">
+            <span class="tab-num">02</span>
+            <span class="tab-txt">프로젝트</span>
+          </button>
+          <button class="idx-tab" data-target="contact">
+            <span class="tab-num">03</span>
+            <span class="tab-txt">Contact</span>
+          </button>
+        </nav>
+
+        <!-- CARD -->
+        <div class="card section-intro" id="card">
+          <!-- META STRIP -->
+          <div class="card-meta">
+            <span class="card-year">Frontend Developer</span>
+            <span class="card-handle">So Hye-rim</span>
+          </div>
+
+          <!-- PAGES -->
+          <div class="card-pages" id="cardPages">
+            <!-- 00 홈 -->
+            <section class="page" id="page-intro" data-page="intro">
+              <div class="intro-frame">
+                <span class="corner tl"></span>
+                <span class="corner tr"></span>
+                <span class="corner bl"></span>
+                <span class="corner br"></span>
+              </div>
+              <div class="intro-hero">
+                <span class="intro-label">Frontend Developer — 2026</span>
+                <h1 class="intro-name">소혜림</h1>
+                <p class="intro-sub">Portfolio</p>
+                <div class="intro-cue">— 클릭해서 시작하기 —</div>
+              </div>
+            </section>
+
+            <!-- 01 소개 -->
+            <section class="page hidden" id="page-about" data-page="about">
+              <div class="about-top">
+                <img
+                  src="images/profile-image.JPG"
+                  alt="소혜림 프로필"
+                  class="profile-img"
+                />
+                <div class="page-hero">
+                  <h2>안녕하세요,<br />소혜림입니다.</h2>
+                  <p>
+                    서비스를 직접 기획하고, 구현하며 완성해가는 과정에서
+                    성장하는 프론트엔드 개발자입니다. 아이디어를 실제로 동작하는
+                    서비스로 만들어내는 것에 보람을 느끼고, 작은 디테일도 놓치지
+                    않으려 노력합니다.
+                  </p>
+                </div>
+              </div>
+              <div class="skills-area">
+                <h4 class="skills-heading">Skills</h4>
+                <div class="skill-rows">
+                  <div class="skill-row">
+                    <span class="sr-label">Language</span>
+                    <div class="sr-tags">
+                      <span>HTML</span><span>CSS</span><span>Tailwind CSS</span
+                      ><span>JavaScript</span><span>TypeScript</span>
+                    </div>
+                  </div>
+                  <div class="skill-row">
+                    <span class="sr-label">Framework</span>
+                    <div class="sr-tags">
+                      <span>React</span><span>Next.js</span>
+                    </div>
+                  </div>
+                  <div class="skill-row">
+                    <span class="sr-label">Tools</span>
+                    <div class="sr-tags">
+                      <span>Git</span><span>Figma</span><span>Vite</span
+                      ><span>Photoshop</span><span>Illustrator</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="about-section">
+                <h4 class="skills-heading">학력 및 교육사항</h4>
+                <div class="about-table">
+                  <div class="about-row">
+                    <span class="about-date">2015.09 – 2023.02</span>
+                    <span class="about-name">가톨릭대학교</span>
+                    <span class="about-org">음악과(성악)</span>
+                  </div>
+                  <div class="about-row">
+                    <span class="about-date">2022.05 – 2022.08</span>
+                    <span class="about-name">아카데미정글</span>
+                    <span class="about-org">웹퍼블리싱 과정</span>
+                  </div>
+                  <div class="about-row">
+                    <span class="about-date">2025.08 – 2026.02</span>
+                    <span class="about-name">멋쟁이사자처럼 부트캠프</span>
+                    <span class="about-org">웹 프론트엔드 엔지니어 과정</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="about-section">
+                <h4 class="skills-heading">자격사항</h4>
+                <div class="about-table">
+                  <div class="about-row">
+                    <span class="about-name">컴퓨터그래픽스운용기능사</span>
+                    <span class="about-org">한국산업인력공단</span>
+                  </div>
+                  <div class="about-row">
+                    <span class="about-name">멀티미디어기능사</span>
+                    <span class="about-org">한국산업인력공단</span>
+                  </div>
+                  <div class="about-row">
+                    <span class="about-name">GTQi 1급</span>
+                    <span class="about-org">한국생산성본부</span>
+                  </div>
+                  <div class="about-row">
+                    <span class="about-name">GTQi 2급</span>
+                    <span class="about-org">한국생산성본부</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- 02 프로젝트 -->
+            <section
+              class="page hidden"
+              id="page-projects"
+              data-page="projects"
+            >
+              <div class="page-hero">
+                <h2>Project</h2>
+              </div>
+              <div class="projects-list">
+                <article class="project">
+                  <div class="proj-thumb">
+                    <img
+                      src="images/youus.png"
+                      alt="youus 미리보기"
+                      class="proj-img"
+                    />
+                  </div>
+                  <div class="proj-body">
+                    <div class="proj-hd">
+                      <h3>유어스 (You, Us) - 팀 프로젝트</h3>
+                      <div class="proj-links">
+                        <a
+                          href="https://github.com/FRONTENDBOOTCAMP-15th/final-08-You.us"
+                          target="_blank"
+                          rel="noopener"
+                          >GitHub ↗</a
+                        >
+                        <a
+                          href="https://final-08-you-us-release.vercel.app/"
+                          target="_blank"
+                          rel="noopener"
+                          >Demo ↗</a
+                        >
+                      </div>
+                    </div>
+                    <p>
+                      기존 쇼핑몰은 카테고리·가격 필터 중심이라 사용자가 스스로
+                      답을 찾아야 하는 구조입니다. 유어스는 이 문제를 해결하기
+                      위해, 받는 사람·상황·예산을 문항 선택 방식으로 입력하면
+                      OpenAI API가 답변을 분석·태그화해 조건에 맞는 상품을 카드
+                      형태로 추천하는 선물 쇼핑몰입니다. AI를 마케팅 요소가 아닌
+                      핵심 기능으로 설계에 포함한 것이 특징입니다. 백엔드는
+                      제공된 API 서버를 활용한 프론트엔드 중심
+                      프로젝트입니다.<br /><br />
+                      4인 팀에서 PM을 맡아 일정·우선순위·방향성을 조율했고,
+                      인트로 · AI 추천 테스트 · 로그인 · 회원가입 · 주문결제
+                      페이지를 직접 개발했습니다.
+                    </p>
+                    <div class="proj-stack">
+                      <span>Next.js</span><span>TypeScript</span
+                      ><span>Tailwind CSS</span><span>Zustand</span>
+                    </div>
+                    <div class="proj-feedback">
+                      <span class="feedback-label">팀원 피드백</span>
+                      <ul>
+                        <li>
+                          일정 관리·데일리 스크럼·팀원 의견 조율 등 PM 역할을
+                          충실히 수행, 끝까지 이끌어줬다는 신뢰를 받음
+                        </li>
+                        <li>
+                          맡은 역할을 넘어 다각도로 팀에 기여하고, 기술적 난관
+                          시 능동적으로 해결 방안을 제시해 일정 지연을 최소화함
+                        </li>
+                        <li>
+                          모르는 부분을 항상 챙겨주고 공동 작업에도 적극적으로
+                          임하는 모습이 인상 깊었다는 평가
+                        </li>
+                        <li>
+                          리더십과 개발 이해도가 높고, 꾸준하게 열심히 개발하는
+                          모습이 인상 깊었다는 평가
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+                <article class="project">
+                  <div class="proj-thumb">
+                    <img
+                      src="images/good-day.png"
+                      alt="good-day 미리보기"
+                      class="proj-img"
+                    />
+                  </div>
+                  <div class="proj-body">
+                    <div class="proj-hd">
+                      <h3>굿데이 (Good Day) - 개인 프로젝트</h3>
+                      <div class="proj-links">
+                        <a
+                          href="https://github.com/sohyerim-dev/good-day"
+                          target="_blank"
+                          rel="noopener"
+                          >GitHub ↗</a
+                        >
+                        <a
+                          href="https://www.good-day-out.com"
+                          target="_blank"
+                          rel="noopener"
+                          >Demo ↗</a
+                        >
+                      </div>
+                    </div>
+                    <p>
+                      친구들과 놀러 나갈 코스를 직접 만들고 공유할 수 있는
+                      풀스택 개인 프로젝트입니다. Supabase(PostgreSQL + Auth +
+                      RLS)로 백엔드를 직접 구성했습니다. 네이버 장소 검색으로
+                      원하는 장소를 추가하고 드래그 앤 드롭으로 방문 순서를
+                      자유롭게 조정할 수 있습니다. 완성된 코스는 Google Maps
+                      기반으로 도보·대중교통 경로를 구간별로 안내하며, URL 복사
+                      또는 카카오톡 공유 시 OG 미리보기(제목·설명·이미지)가 함께
+                      표시됩니다.<br /><br />
+
+                      주요 기능으로는 네이버 장소 검색 및 드래그 순서 변경,
+                      Google Maps + TMap 기반 경로 안내, 지도에서 주변 코스
+                      탐색, 좋아요 수 기준 인기 코스 랭킹, 북마크·저장 장소
+                      관리, 자동로그인(세션 유지 방식 선택) 등이 있습니다.<br /><br />
+
+                      Google Maps API, TMap API, 네이버 검색 API, Google
+                      Geocoding API 등 다양한 외부 API를 직접 연동하며 CORS
+                      처리, 서버/클라이언트 환경 분리, API 인증 방식 차이를
+                      경험했습니다. Supabase PostgreSQL + RLS 정책으로 인증 기반
+                      데이터 접근 제어를 설계했고, Next.js App Router의
+                      generateMetadata를 활용한 SSR 기반 OG 메타 생성도 직접
+                      구성했습니다.
+                    </p>
+                    <div class="proj-stack">
+                      <span>Next.js</span><span>TypeScript</span
+                      ><span>Tailwind CSS</span><span>Zustand</span
+                      ><span>Supabase</span>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <!-- 03 연락처 -->
+            <section class="page hidden" id="page-contact" data-page="contact">
+              <div class="page-hero">
+                <h2>Let's work<br />together.</h2>
+                <p>
+                  현재 적극적으로 구직 중입니다. 함께 성장할 수 있는 팀을 찾고
+                  있습니다. 편하게 연락 주세요!
+                </p>
+              </div>
+              <nav class="contact-nav" aria-label="연락처 목록">
+                <a href="mailto:musik91@naver.com" class="contact-row">
+                  <span class="cr-icon"
+                    ><img src="images/mail.png" alt="email" class="cr-icon-img"
+                  /></span>
+                  <span class="cr-label">Email</span>
+                  <span class="cr-val">musik91@naver.com</span>
+                  <span class="cr-arrow">→</span>
+                </a>
+                <a
+                  href="https://github.com/sohyerim-dev"
+                  class="contact-row"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span class="cr-icon"
+                    ><img
+                      src="images/github.png"
+                      alt="github"
+                      class="cr-icon-img"
+                  /></span>
+                  <span class="cr-label">GitHub</span>
+                  <span class="cr-val">github.com/sohyerim-dev</span>
+                  <span class="cr-arrow">→</span>
+                </a>
+                <a
+                  href="https://linkedin.com/in/%ED%98%9C%EB%A6%BC-%EC%86%8C-38b555409"
+                  class="contact-row"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <span class="cr-icon"
+                    ><img
+                      src="images/linkdin.png"
+                      alt="linkedin"
+                      class="cr-icon-img"
+                  /></span>
+                  <span class="cr-label">LinkedIn</span>
+                  <span class="cr-val">linkedin.com/in/혜림-소-38b555409</span>
+                  <span class="cr-arrow">→</span>
+                </a>
+              </nav>
+            </section>
+          </div>
+          <!-- .card-pages -->
+        </div>
+        <!-- .card -->
+      </div>
+      <!-- .file-wrapper -->
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
