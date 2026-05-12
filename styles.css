@@ -59,13 +59,13 @@
   --bg: #fafafa;
 
   --c-intro-card: #ffccdf;
-  --c-intro-tab: #ffa4c6;
+  --c-intro-tab:  #ffa4c6;
   --c-about-card: #fa8243;
-  --c-about-tab: #f77530;
+  --c-about-tab:  #f77530;
   --c-projects-card: #c1e6ff;
-  --c-projects-tab: #9dd8ff;
+  --c-projects-tab:  #9dd8ff;
   --c-contact-card: #eae7e0;
-  --c-contact-tab: #e8ddc3;
+  --c-contact-tab:  #e8ddc3;
 
   --ct: #1a1a1a;
   --ct-2: rgba(26, 26, 26, 0.52);
@@ -107,77 +107,92 @@ body::after {
   justify-content: center;
 }
 
-/* ─── File wrapper ─── */
-.file-wrapper {
-  position: relative;
-  width: min(1080px, 92vw);
-  padding-top: var(--tab-h);
+/* ─── Outro post-it ─── */
+.outro-note {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-4deg);
+  background: #fff9a0;
+  padding: 48px 60px;
+  font-family: "SCDream", sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  color: #1a1a1a;
+  box-shadow:
+    2px 4px 0 rgba(0, 0, 0, 0.06),
+    4px 10px 24px rgba(0, 0, 0, 0.14);
+  letter-spacing: 0.04em;
+  z-index: 0;
+  user-select: none;
 }
 
 /* ═══════════════════════════════
-   INDEX TABS
+   CARD STACK
 ═══════════════════════════════ */
-.index-tabs {
+.card-stack {
+  position: relative;
+  width: min(1080px, 92vw);
+  height: calc(min(700px, 88vh) + var(--tab-h));
+  z-index: 1;
+}
+
+/* 각 카드 = 인덱스탭 + 카드바디 한 덩어리 */
+.card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--tab-h);
+  pointer-events: none; /* 카드 요소 자체는 이벤트 통과 — 자식 요소가 직접 받음 */
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ═══════════════════════════════
+   INDEX TAB (카드당 1개)
+═══════════════════════════════ */
+.card-tab-area {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: var(--tab-h);
-  display: flex;
-  align-items: flex-end;
-  gap: 5px;
-  padding: 0 0 0 20px;
-  z-index: 5;
+  pointer-events: none;
 }
 
 .idx-tab {
-  padding: 9px 32px 13px;
-  border-radius: 10px 10px 0 0;
-  border: none;
+  position: absolute;
+  bottom: 0;
+  width: 112px;           /* 고정 너비 → 탭마다 동일한 크기 */
+  pointer-events: auto;
   cursor: pointer;
+  padding: 9px 10px 13px;
+  border-radius: 10px 10px 0 0;
   font-family: "SCDream", system-ui, sans-serif;
   font-size: 11px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: rgba(26, 26, 26, 0.55);
+  color: rgba(26, 26, 26, 0.88);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2px;
-  transform: translateY(0);
-  transition:
-    transform 0.22s ease,
-    background 0.22s ease,
-    color 0.22s,
-    opacity 0.22s;
   line-height: 1;
-  min-width: 80px;
-  opacity: 0.55;
-}
-.idx-tab:hover:not(.active) {
-  transform: translateY(0);
-  opacity: 1;
-}
-.idx-tab.active {
-  transform: translateY(0);
-  color: rgba(26, 26, 26, 0.88);
-  opacity: 1;
   box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.1);
+  user-select: none;
 }
 
-.idx-tab[data-target="intro"] {
-  background: var(--c-intro-tab);
-}
-.idx-tab[data-target="about"] {
-  background: var(--c-about-tab);
-}
-.idx-tab[data-target="projects"] {
-  background: var(--c-projects-tab);
-}
-.idx-tab[data-target="contact"] {
-  background: var(--c-contact-tab);
-}
+/* 고정 너비(112px) + 간격(5px) = 117px 씩 → 겹침 없이 나란히 */
+.card[data-page="intro"]    .idx-tab { left: 20px; }
+.card[data-page="about"]    .idx-tab { left: 137px; }
+.card[data-page="projects"] .idx-tab { left: 254px; }
+.card[data-page="contact"]  .idx-tab { left: 371px; }
+
+.idx-tab[data-target="intro"]    { background: var(--c-intro-tab); }
+.idx-tab[data-target="about"]    { background: var(--c-about-tab); }
+.idx-tab[data-target="projects"] { background: var(--c-projects-tab); }
+.idx-tab[data-target="contact"]  { background: var(--c-contact-tab); }
 
 .tab-num {
   font-size: 9px;
@@ -190,35 +205,30 @@ body::after {
 }
 
 /* ═══════════════════════════════
-   CARD
+   CARD BODY
 ═══════════════════════════════ */
-.card {
-  position: relative;
+.card-body {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  height: min(700px, 88vh);
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow:
     0 32px 80px rgba(0, 0, 0, 0.16),
     0 8px 24px rgba(0, 0, 0, 0.08);
+  pointer-events: auto;  /* 카드바디에서 클릭 수신 */
+  cursor: pointer;
+}
+/* 뒤에 깔린 카드 / 깊은 스택 카드는 바디 클릭 비활성 */
+.card.behind .card-body,
+.card.pushed-deep .card-body {
+  pointer-events: none;
 }
 
-.card.section-intro {
-  background: var(--c-intro-card);
-}
-.card.section-about {
-  background: var(--c-about-card);
-}
-.card.section-projects {
-  background: var(--c-projects-card);
-}
-.card.section-contact {
-  background: var(--c-contact-card);
-}
-.card.section-outro {
-  background: var(--c-contact-card);
-}
+.card[data-page="intro"]    .card-body { background: var(--c-intro-card); }
+.card[data-page="about"]    .card-body { background: var(--c-about-card); }
+.card[data-page="projects"] .card-body { background: var(--c-projects-card); }
+.card[data-page="contact"]  .card-body { background: var(--c-contact-card); }
 
 /* ─── Meta strip ─── */
 .card-meta {
@@ -239,68 +249,33 @@ body::after {
 }
 
 /* ═══════════════════════════════
-   CARD PAGES
+   CARD CONTENT
 ═══════════════════════════════ */
-.card-pages {
+
+/* intro: 컬러 카드 바탕에 바로 콘텐츠 */
+.card-content {
   flex: 1;
   position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.page {
-  position: absolute;
-  inset: 0;
-  padding: 36px 44px 28px;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 22px;
-  opacity: 1;
-  z-index: 1;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
-}
-.page.hidden {
-  opacity: 0;
-  pointer-events: none;
+  overflow: hidden;
 }
 
-#page-intro {
-  background: var(--c-intro-card);
-}
-#page-outro {
-  background: var(--c-contact-card);
-}
-.outro-hero {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.outro-text {
-  font-family: "SCDream", sans-serif;
-  font-size: clamp(36px, 6vw, 64px);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--ct);
+.card[data-page="intro"] .card-content {
+  padding: 36px 44px 28px;
 }
 
-#page-about,
-#page-projects {
-  padding-bottom: 40px;
-}
-
-#page-about,
-#page-projects,
-#page-contact {
-  inset: 14px;
+/* about / projects / contact: 흰색 인셋 카드 */
+.card-content-inset {
+  margin: 14px;
   border-radius: 12px;
   background: #ffffff;
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.1);
-}
-.page.entering {
-  animation: pageIn 0.35s ease forwards;
+  padding: 36px 44px 28px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
 }
 
 /* ─── 00 인트로 프레임 ─── */
@@ -472,19 +447,9 @@ body::after {
   color: #1a1a1a;
   letter-spacing: 0.04em;
 }
-
-/* Language — 핑크 */
-.skill-row:nth-child(1) .sr-tags span {
-  background: #ffccdf;
-}
-/* Framework — 하늘 */
-.skill-row:nth-child(2) .sr-tags span {
-  background: #c1e6ff;
-}
-/* Tools — 아이보리 */
-.skill-row:nth-child(3) .sr-tags span {
-  background: #e8ddc3;
-}
+.skill-row:nth-child(1) .sr-tags span { background: #ffccdf; }
+.skill-row:nth-child(2) .sr-tags span { background: #c1e6ff; }
+.skill-row:nth-child(3) .sr-tags span { background: #e8ddc3; }
 
 /* ─── About 자격/학력 ─── */
 .about-section {
@@ -534,10 +499,7 @@ body::after {
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(4px);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-  transition:
-    background 0.2s,
-    box-shadow 0.2s,
-    transform 0.2s;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 .project:hover {
   background: rgba(255, 255, 255, 0.85);
@@ -559,13 +521,6 @@ body::after {
   object-fit: cover;
   object-position: center top;
   display: block;
-}
-.proj-thumb-placeholder {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
-  color: rgba(0, 0, 0, 0.25);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 .proj-body {
   flex: 1;
@@ -599,9 +554,7 @@ body::after {
   border-radius: 999px;
   border: 1px solid rgba(26, 26, 26, 0.25);
   background: transparent;
-  transition:
-    background 0.15s,
-    border-color 0.15s;
+  transition: background 0.15s, border-color 0.15s;
 }
 .proj-links a:hover {
   background: rgba(26, 26, 26, 0.08);
@@ -767,52 +720,9 @@ body::after {
 /* ═══════════════════════════════
    ANIMATIONS
 ═══════════════════════════════ */
-
-/* 앞으로: 현재 페이지 왼쪽 위로 튕겨 나감, 새 페이지 오른쪽에서 슬라이드인 */
-@keyframes slideOutUpperLeft {
-  from { transform: translate(0, 0) rotate(0deg); opacity: 1; }
-  to   { transform: translate(-80%, -18%) rotate(-10deg); opacity: 0; }
-}
-@keyframes slideInFromRight {
-  from { transform: translateX(105%); opacity: 0; }
-  to   { transform: translateX(0); opacity: 1; }
-}
-
-/* 뒤로: 현재 페이지 오른쪽으로 나감, 이전 페이지 왼쪽에서 슬라이드인 */
-@keyframes slideOutRight {
-  from { transform: translateX(0); opacity: 1; }
-  to   { transform: translateX(105%); opacity: 0; }
-}
-@keyframes slideInFromLeft {
-  from { transform: translateX(-105%); opacity: 0; }
-  to   { transform: translateX(0); opacity: 1; }
-}
-
-.card-pages[data-dir="forward"] .page.exiting {
-  animation: slideOutUpperLeft 0.38s ease-in forwards;
-  pointer-events: none;
-}
-.card-pages[data-dir="forward"] .page.entering {
-  animation: slideInFromRight 0.38s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-  pointer-events: none;
-}
-.card-pages[data-dir="backward"] .page.exiting {
-  animation: slideOutRight 0.34s ease-in forwards;
-  pointer-events: none;
-}
-.card-pages[data-dir="backward"] .page.entering {
-  animation: slideInFromLeft 0.34s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
-  pointer-events: none;
-}
-
 @keyframes blink {
-  0%,
-  100% {
-    opacity: 0.38;
-  }
-  50% {
-    opacity: 0.75;
-  }
+  0%, 100% { opacity: 0.38; }
+  50%       { opacity: 0.75; }
 }
 
 /* ─── Scroll cue ─── */
@@ -835,64 +745,34 @@ body::after {
   color: rgba(26, 26, 26, 0.45);
 }
 @keyframes scrollHint {
-  0% {
-    transform: translateY(-4px);
-    opacity: 0.15;
-  }
-  50% {
-    transform: translateY(3px);
-    opacity: 0.55;
-  }
-  100% {
-    transform: translateY(-4px);
-    opacity: 0.15;
-  }
+  0%   { transform: translateY(-4px); opacity: 0.15; }
+  50%  { transform: translateY(3px);  opacity: 0.55; }
+  100% { transform: translateY(-4px); opacity: 0.15; }
 }
 
 /* ═══════════════════════════════
    ACCESSIBILITY
 ═══════════════════════════════ */
-
-/* 키보드 포커스 표시 */
-.idx-tab:focus-visible {
-  outline: 2px solid rgba(26, 26, 26, 0.7);
-  outline-offset: 3px;
-  border-radius: 10px 10px 0 0;
-}
 .proj-links a:focus-visible,
 .contact-row:focus-visible {
   outline: 2px solid rgba(26, 26, 26, 0.7);
   outline-offset: 3px;
   border-radius: 8px;
 }
-.page:focus-visible {
-  outline: none;
-}
 
-/* 움직임 감소 설정 존중 */
+/* ═══════════════════════════════
+   REDUCED MOTION
+═══════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
-  .card-pages[data-dir="forward"] .page.exiting,
-  .card-pages[data-dir="forward"] .page.entering,
-  .card-pages[data-dir="backward"] .page.exiting,
-  .card-pages[data-dir="backward"] .page.entering {
-    animation: none;
-  }
-  .intro-cue,
-  .scroll-cue {
-    animation: none;
-    opacity: 0.4;
-  }
-  .contact-row,
-  .project {
-    transition: none;
-  }
+  .card { transition: none !important; }
+  .intro-cue, .scroll-cue { animation: none; opacity: 0.4; }
+  .contact-row, .project  { transition: none; }
 }
 
 /* ═══════════════════════════════
    RESPONSIVE
 ═══════════════════════════════ */
 @media (max-width: 600px) {
-  /* ── Layout ── */
   body {
     min-height: 100dvh;
     align-items: flex-start;
@@ -902,24 +782,26 @@ body::after {
     align-items: flex-start;
     padding: 0;
   }
-  .file-wrapper {
+  .card-stack {
     width: 100vw;
-    margin: 0;
+    height: 100dvh;
   }
-  .card {
-    height: calc(100dvh - var(--tab-h));
+  .card-body {
     border-radius: 0;
   }
-
-  /* ── Tabs: 4개를 균등 분할 ── */
-  .index-tabs {
-    padding: 0 4px 0 4px;
-    gap: 3px;
+  .card[data-page="intro"] .card-content {
+    padding: 18px 16px 16px;
   }
+  .card-content-inset {
+    margin: 7px;
+    padding: 18px 16px 16px;
+  }
+
+  /* ── Tabs: 모바일 고정 너비 + 위치 재조정 ── */
   .idx-tab {
-    flex: 1;
-    min-width: 0;
-    padding: 8px 6px 12px;
+    width: 82px;
+    padding: 8px 4px 12px;
+    font-size: 10px;
   }
   .tab-txt {
     font-size: 9px;
@@ -928,17 +810,10 @@ body::after {
   .tab-num {
     font-size: 8px;
   }
-
-  /* ── Pages ── */
-  .page {
-    padding: 18px 16px 16px;
-    gap: 14px;
-  }
-  #page-about,
-  #page-projects,
-  #page-contact {
-    inset: 7px;
-  }
+  .card[data-page="intro"]    .idx-tab { left: 5px; }
+  .card[data-page="about"]    .idx-tab { left: 91px; }
+  .card[data-page="projects"] .idx-tab { left: 177px; }
+  .card[data-page="contact"]  .idx-tab { left: 263px; }
 
   /* ── Intro ── */
   .intro-frame {
@@ -951,7 +826,7 @@ body::after {
     display: none;
   }
 
-  /* ── About: 이미지 옆에 h2 ── */
+  /* ── About ── */
   .about-top {
     flex-direction: row;
     align-items: flex-start;
@@ -969,27 +844,21 @@ body::after {
     font-size: 12.5px;
     max-width: 100%;
   }
-  #page-contact .page-hero h2 {
+  .card[data-page="contact"] .page-hero h2 {
     font-size: 30px;
   }
-  #page-contact .page-hero p {
+  .card[data-page="contact"] .page-hero p {
     font-size: 15px;
   }
   .skills-heading {
     font-size: 14px;
   }
-
-  /* ── Skills: label + tags 세로 쌓기 ── */
   .skill-row {
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
   }
-  .sr-label {
-    width: auto;
-  }
-
-  /* ── About 학력/자격 ── */
+  .sr-label { width: auto; }
   .about-date {
     min-width: 0;
     font-size: 9px;
@@ -999,7 +868,7 @@ body::after {
     gap: 4px 8px;
   }
 
-  /* ── Projects: 썸네일 → 내용 세로 쌓기 ── */
+  /* ── Projects ── */
   .project {
     flex-direction: column;
     padding: 12px 12px;
@@ -1016,9 +885,7 @@ body::after {
     gap: 6px;
     margin-bottom: 4px;
   }
-  .proj-hd h3 {
-    font-size: 14px;
-  }
+  .proj-hd h3 { font-size: 14px; }
   .proj-body > p {
     font-size: 12px;
     line-height: 1.6;

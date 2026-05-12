@@ -1,127 +1,108 @@
 (function () {
-  const card      = document.getElementById('card');
-  const cardPages = document.getElementById('cardPages');
-  const tabs      = document.querySelectorAll('.idx-tab');
-  const pages     = document.querySelectorAll('.page');
-
-  const ORDER = ['intro', 'about', 'projects', 'contact', 'outro'];
-  let current = 0;
+  // DOM 순서: [contact(0), projects(1), about(2), intro(3)]
+  const cards = Array.from(document.querySelectorAll('.card'));
+  let current = cards.length - 1;
   let busy = false;
-
-  function updateTabs(name) {
-    const effective = name === 'outro' ? 'contact' : name;
-    tabs.forEach(t => {
-      const on = t.dataset.target === effective;
-      t.classList.toggle('active', on);
-      t.setAttribute('aria-selected', String(on));
-    });
-  }
-
-  function showPage(page) {
-    page.classList.remove('hidden');
-    page.removeAttribute('aria-hidden');
-    page.setAttribute('tabindex', '0');
-  }
-
-  function hidePage(page) {
-    page.classList.add('hidden');
-    page.setAttribute('aria-hidden', 'true');
-    page.setAttribute('tabindex', '-1');
-  }
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function switchTab(targetName, forcedDir) {
-    const nextIndex = ORDER.indexOf(targetName);
-    if (nextIndex === current || busy) return;
-
-    busy = true;
-    const dir = forcedDir ?? (nextIndex > current ? 'forward' : 'backward');
-
-    const oldPage = document.querySelector(`.page[data-page="${ORDER[current]}"]`);
-    const newPage = document.querySelector(`.page[data-page="${targetName}"]`);
-
-    cardPages.dataset.dir = dir;
-    current = nextIndex;
-
-    if (reducedMotion) {
-      updateTabs(targetName);
-      card.className = 'card section-' + targetName;
-      hidePage(oldPage);
-      showPage(newPage);
-      busy = false;
-      return;
+  function getPushedTransform(depth) {
+    if (window.innerWidth <= 600) {
+      // 모바일: 작게만 보이게 (클릭 가능한 정도)
+      const peek = Math.max(28, 48 - (depth - 1) * 10);
+      return `translateX(calc(100% - ${peek}px))`;
     }
-
-    function cleanup(isForward) {
-      hidePage(oldPage);
-      oldPage.classList.remove('exiting');
-      oldPage.style.zIndex = '';
-      newPage.classList.remove('entering');
-      newPage.style.zIndex = '';
-      busy = false;
-    }
-
-    if (dir === 'forward') {
-      oldPage.style.zIndex = '2';
-      newPage.style.zIndex = '1';
-
-      newPage.classList.add('entering');
-      showPage(newPage);
-      oldPage.classList.add('exiting');
-
-      let done = 0;
-      function onForwardEnd() {
-        if (++done < 2) return;
-        updateTabs(targetName);
-        card.className = 'card section-' + targetName;
-        cleanup(true);
-      }
-      oldPage.addEventListener('animationend', onForwardEnd, { once: true });
-      newPage.addEventListener('animationend', onForwardEnd, { once: true });
-
-    } else {
-      updateTabs(targetName);
-      card.className = 'card section-' + targetName;
-
-      oldPage.style.zIndex = '1';
-      newPage.style.zIndex = '3';
-
-      newPage.classList.add('entering');
-      showPage(newPage);
-      oldPage.classList.add('exiting');
-
-      let done = 0;
-      function onBackwardEnd() {
-        if (++done < 2) return;
-        cleanup(false);
-      }
-      oldPage.addEventListener('animationend', onBackwardEnd, { once: true });
-      newPage.addEventListener('animationend', onBackwardEnd, { once: true });
-    }
+    const peek = Math.max(44, 96 - (depth - 1) * 24);
+    const yOffset = -6 - (depth - 1) * 3;
+    return `translate(calc(100% - ${peek}px), ${yOffset}%)`;
   }
 
-  cardPages.addEventListener('click', e => {
-    if (e.target.closest('a, button')) return;
-    if (window.innerWidth <= 600) return;
-    if (current >= ORDER.length - 1) return;
-    switchTab(ORDER[current + 1], 'forward');
-  });
+  function render(animate) {
+    cards.forEach((card, i) => {
+      card.style.transition = animate ? '' : 'none';
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => switchTab(tab.dataset.target));
-  });
+      if (i <= current) {
+        card.style.zIndex = i < current ? i + 1 : 10;
+        card.style.transform = '';
+        // 뒤에 깔린 카드: 바디 클릭 비활성
+        if (i < current) {
+          card.classList.add('behind');
+          card.classList.remove('pushed-deep');
+        } else {
+          card.classList.remove('behind', 'pushed-deep');
+        }
+      } else {
+        const depth = i - current;
+        card.style.zIndex = 20 - depth;
+        card.style.transform = reducedMotion ? 'translateX(110%)' : getPushedTransform(depth);
+        card.classList.remove('behind');
+        // depth > 1이면 클릭 비활성 (LIFO: 가장 최근 것만 복귀 가능)
+        card.classList.toggle('pushed-deep', depth > 1);
+      }
+    });
+  }
 
-  /* 탭 목록 내 화살표 키 내비게이션 (ARIA tablist 패턴) */
-  tabs.forEach((tab, i) => {
-    tab.addEventListener('keydown', e => {
-      let next = -1;
-      if (e.key === 'ArrowRight') next = (i + 1) % tabs.length;
-      if (e.key === 'ArrowLeft')  next = (i - 1 + tabs.length) % tabs.length;
-      if (next === -1) return;
-      e.preventDefault();
-      tabs[next].focus();
-      switchTab(tabs[next].dataset.target);
+  // 탭 클릭 시 targetIdx까지 cascade로 치움
+  function sweepTo(targetIdx) {
+    const total = current - targetIdx;
+    if (total <= 0 || busy) return;
+    busy = true;
+    const STAGGER = 110;
+    let swept = 0;
+
+    function doNext() {
+      current--;
+      render(true);
+      swept++;
+      if (swept < total) {
+        setTimeout(doNext, STAGGER);
+      } else {
+        setTimeout(() => { busy = false; }, 450);
+      }
+    }
+    doNext();
+  }
+
+  // 카드바디 클릭 → 한 장 앞으로 / LIFO 복귀
+  cards.forEach((card, i) => {
+    card.querySelector('.card-body').addEventListener('click', e => {
+      if (e.target.closest('a, button')) return;
+      if (busy) return;
+
+      if (i === current && current >= 0) {
+        busy = true;
+        current--;
+        render(true);
+        setTimeout(() => { busy = false; }, 450);
+
+      } else if (i === current + 1) {
+        busy = true;
+        const returningCard = card;
+        current++;
+        render(true);
+        returningCard.style.zIndex = 25;
+        setTimeout(() => {
+          returningCard.style.zIndex = 10;
+          busy = false;
+        }, 450);
+      }
     });
   });
+
+  // 탭 클릭 → 해당 카드까지 cascade sweep
+  // .card가 pointer-events:none이므로 탭 뒤에 있는 카드들 탭까지 클릭 통과됨
+  document.querySelectorAll('.idx-tab').forEach(tab => {
+    tab.addEventListener('click', e => {
+      e.stopPropagation();
+      if (busy) return;
+      const targetIdx = cards.findIndex(c => c.dataset.page === tab.dataset.target);
+      if (targetIdx < 0 || targetIdx >= current) return;
+      sweepTo(targetIdx);
+    });
+  });
+
+  render(false);
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    cards.forEach(c => { c.style.transition = ''; });
+  }));
 })();
