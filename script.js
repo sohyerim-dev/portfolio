@@ -59,10 +59,21 @@
       if (swept < total) {
         setTimeout(doNext, STAGGER);
       } else {
-        setTimeout(() => { busy = false; }, 450);
+        setTimeout(() => { busy = false; hintContactTab(); }, 450);
       }
     }
     doNext();
+  }
+
+  // contact가 현재 카드일 때 탭 힌트
+  function hintContactTab() {
+    if (current !== 0 || reducedMotion) return;
+    const tab = cards[0].querySelector('.idx-tab');
+    if (!tab) return;
+    tab.classList.remove('tab-pulse');
+    void tab.offsetWidth; // 애니메이션 재시작용 reflow
+    tab.classList.add('tab-pulse');
+    tab.addEventListener('animationend', () => tab.classList.remove('tab-pulse'), { once: true });
   }
 
   // 카드바디 클릭 → 한 장 앞으로 / LIFO 복귀 (데스크톱만)
@@ -76,7 +87,7 @@
         busy = true;
         current--;
         render(true);
-        setTimeout(() => { busy = false; }, 450);
+        setTimeout(() => { busy = false; hintContactTab(); }, 450);
 
       } else if (i === current + 1) {
         busy = true;
@@ -87,6 +98,7 @@
         setTimeout(() => {
           returningCard.style.zIndex = 10;
           busy = false;
+          hintContactTab();
         }, 450);
       }
     });
@@ -109,7 +121,7 @@
         busy = true;
         current--;
         render(true);
-        setTimeout(() => { busy = false; }, 450);
+        setTimeout(() => { busy = false; hintContactTab(); }, 450);
       } else if (targetIdx === current + 1) {
         // LIFO 복귀: 가장 위 pushed 카드 탭 클릭
         busy = true;
@@ -117,7 +129,7 @@
         current++;
         render(true);
         returningCard.style.zIndex = 25;
-        setTimeout(() => { returningCard.style.zIndex = 10; busy = false; }, 450);
+        setTimeout(() => { returningCard.style.zIndex = 10; busy = false; hintContactTab(); }, 450);
       }
     });
   });
