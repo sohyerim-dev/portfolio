@@ -67,6 +67,7 @@
 
   cardPages.addEventListener('click', e => {
     if (e.target.closest('a, button')) return;
+    if (window.innerWidth <= 600) return;
     switchTab(ORDER[(current + 1) % ORDER.length], 'forward');
   });
 

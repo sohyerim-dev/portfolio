@@ -763,6 +763,11 @@ body::after {
    RESPONSIVE
 ═══════════════════════════════ */
 @media (max-width: 600px) {
+  /* ── Layout ── */
+  .scene {
+    height: 100dvh;        /* 브라우저 UI 제외한 실제 보이는 높이 */
+    align-items: flex-start; /* 상단부터 배치 */
+  }
   .file-wrapper {
     width: 100vw;
   }
@@ -770,17 +775,117 @@ body::after {
     height: calc(100dvh - var(--tab-h));
     border-radius: 0;
   }
-  .page {
-    padding: 28px 20px;
-  }
-  .intro-name {
-    font-size: 52px;
-  }
-  .page-hero h2 {
-    font-size: 30px;
+
+  /* ── Tabs: 4개를 균등 분할 ── */
+  .index-tabs {
+    padding: 0 4px 0 4px;
+    gap: 3px;
   }
   .idx-tab {
-    padding: 8px 18px 12px;
-    min-width: 64px;
+    flex: 1;
+    min-width: 0;
+    padding: 8px 6px 12px;
+  }
+  .tab-txt {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+  }
+  .tab-num {
+    font-size: 8px;
+  }
+
+  /* ── Pages ── */
+  .page {
+    padding: 18px 16px 16px;
+    gap: 14px;
+  }
+  #page-about,
+  #page-projects,
+  #page-contact {
+    inset: 7px;
+  }
+
+  /* ── Intro ── */
+  .intro-frame {
+    inset: 14px;
+  }
+  .intro-name {
+    font-size: clamp(48px, 14vw, 72px);
+  }
+
+  /* ── About: 프로필 이미지 + 텍스트 세로 쌓기 ── */
+  .about-top {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .profile-img {
+    width: 80px;
+    height: 110px;
+  }
+  .page-hero h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  .page-hero p {
+    font-size: 12.5px;
+    max-width: 100%;
+  }
+  .skills-heading {
+    font-size: 14px;
+  }
+
+  /* ── Skills: label + tags 세로 쌓기 ── */
+  .skill-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  .sr-label {
+    width: auto;
+  }
+
+  /* ── About 학력/자격 ── */
+  .about-date {
+    min-width: 0;
+    font-size: 9px;
+  }
+  .about-row {
+    flex-wrap: wrap;
+    gap: 4px 8px;
+  }
+
+  /* ── Projects: 썸네일 → 내용 세로 쌓기 ── */
+  .project {
+    flex-direction: column;
+    padding: 12px 12px;
+    gap: 10px;
+  }
+  .proj-thumb {
+    width: 100%;
+    height: 150px;
+    min-height: 0;
+  }
+  .proj-hd {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  .proj-hd h3 {
+    font-size: 14px;
+  }
+  .proj-body > p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  /* ── Contact ── */
+  .contact-row {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .cr-val {
+    font-size: 11.5px;
+    word-break: break-all;
   }
 }
