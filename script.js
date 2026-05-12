@@ -15,7 +15,8 @@
     }
     const peek = Math.max(20, 44 - (depth - 1) * 12);
     const yOffset = -6 - (depth - 1) * 3;
-    return `translate(calc(100% - ${peek}px), ${yOffset}%)`;
+    const angle = 2 + (depth - 1);
+    return `translate(calc(100% - ${peek}px), ${yOffset}%) rotate(${angle}deg)`;
   }
 
   function render(animate) {

@@ -146,7 +146,7 @@ body::after {
   flex-direction: column;
   padding-top: var(--tab-h);
   pointer-events: none; /* 카드 요소 자체는 이벤트 통과 — 자식 요소가 직접 받음 */
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform 0.42s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 /* ═══════════════════════════════
