@@ -874,6 +874,9 @@ body::after {
     height: 150px;
     min-height: 0;
   }
+  .proj-img {
+    object-position: center top;
+  }
   .proj-hd {
     flex-direction: column;
     align-items: flex-start;
