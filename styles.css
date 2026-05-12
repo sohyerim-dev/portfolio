@@ -116,12 +116,28 @@ body::after {
   filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.13));
 }
 
-.prop-pen {
-  height: clamp(440px, 58vh, 640px);
+.prop-coffee {
+  height: clamp(440px, 55vh, 640px);
   width: auto;
-  right: calc(52% + min(540px, 46vw) - 10px);
+  right: calc(55% + min(540px, 46vw) - 10px);
+  bottom: 40%;
+  transform: rotate(10deg);
+}
+
+.prop-pen {
+  height: clamp(440px, 65vh, 640px);
+  width: auto;
+  right: calc(53% + min(540px, 46vw) - 10px);
   bottom: 18%;
   transform: rotate(10deg);
+}
+
+.prop-book {
+  height: clamp(380px, 70vh, 680px);
+  width: auto;
+  left: calc(53% + min(540px, 46vw) - 10px);
+  bottom: 18%;
+  transform: rotate(-8deg);
 }
 
 @media (max-width: 1100px) {
