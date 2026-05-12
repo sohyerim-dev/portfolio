@@ -13,8 +13,20 @@
     tabs.forEach(t => {
       const on = t.dataset.target === effective;
       t.classList.toggle('active', on);
-      t.setAttribute('aria-pressed', String(on));
+      t.setAttribute('aria-selected', String(on));
     });
+  }
+
+  function showPage(page) {
+    page.classList.remove('hidden');
+    page.removeAttribute('aria-hidden');
+    page.setAttribute('tabindex', '0');
+  }
+
+  function hidePage(page) {
+    page.classList.add('hidden');
+    page.setAttribute('aria-hidden', 'true');
+    page.setAttribute('tabindex', '-1');
   }
 
   function switchTab(targetName, forcedDir) {
@@ -31,8 +43,7 @@
     current = nextIndex;
 
     if (dir === 'forward') {
-      /* 다음 장은 그대로 아래에 보이고 — 현재 장만 접혀서 걷힘 */
-      newPage.classList.remove('hidden');
+      showPage(newPage);
       newPage.style.zIndex = '1';
 
       oldPage.style.zIndex = '2';
@@ -40,7 +51,7 @@
       oldPage.addEventListener('animationend', () => {
         updateTabs(targetName);
         card.className = 'card section-' + targetName;
-        oldPage.classList.add('hidden');
+        hidePage(oldPage);
         oldPage.classList.remove('exiting');
         oldPage.style.zIndex = '';
         newPage.style.zIndex = '';
@@ -48,18 +59,17 @@
       }, { once: true });
 
     } else {
-      /* 뒤로: 새 페이지가 위에서 내려와 덮으므로 색은 애니메이션 시작 전에 바로 변경 */
       updateTabs(targetName);
       card.className = 'card section-' + targetName;
 
       oldPage.style.zIndex = '1';
       newPage.style.zIndex = '3';
-      newPage.classList.remove('hidden');
+      showPage(newPage);
       newPage.classList.add('entering');
       newPage.addEventListener('animationend', () => {
         newPage.classList.remove('entering');
         newPage.style.zIndex = '';
-        oldPage.classList.add('hidden');
+        hidePage(oldPage);
         oldPage.style.zIndex = '';
         busy = false;
       }, { once: true });
@@ -75,5 +85,18 @@
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => switchTab(tab.dataset.target));
+  });
+
+  /* 탭 목록 내 화살표 키 내비게이션 (ARIA tablist 패턴) */
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('keydown', e => {
+      let next = -1;
+      if (e.key === 'ArrowRight') next = (i + 1) % tabs.length;
+      if (e.key === 'ArrowLeft')  next = (i - 1 + tabs.length) % tabs.length;
+      if (next === -1) return;
+      e.preventDefault();
+      tabs[next].focus();
+      switchTab(tabs[next].dataset.target);
+    });
   });
 })();

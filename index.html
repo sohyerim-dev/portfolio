@@ -17,21 +17,25 @@
     <main class="scene">
       <div class="file-wrapper">
         <!-- INDEX TABS -->
-        <nav class="index-tabs" aria-label="섹션 탭">
-          <button class="idx-tab active" data-target="intro">
-            <span class="tab-num">00</span>
+        <nav class="index-tabs" aria-label="섹션 탭" role="tablist" aria-orientation="horizontal">
+          <button class="idx-tab active" data-target="intro"
+            role="tab" id="tab-intro" aria-selected="true" aria-controls="page-intro">
+            <span class="tab-num" aria-hidden="true">00</span>
             <span class="tab-txt">INTRO</span>
           </button>
-          <button class="idx-tab" data-target="about">
-            <span class="tab-num">01</span>
+          <button class="idx-tab" data-target="about"
+            role="tab" id="tab-about" aria-selected="false" aria-controls="page-about">
+            <span class="tab-num" aria-hidden="true">01</span>
             <span class="tab-txt">소개</span>
           </button>
-          <button class="idx-tab" data-target="projects">
-            <span class="tab-num">02</span>
+          <button class="idx-tab" data-target="projects"
+            role="tab" id="tab-projects" aria-selected="false" aria-controls="page-projects">
+            <span class="tab-num" aria-hidden="true">02</span>
             <span class="tab-txt">프로젝트</span>
           </button>
-          <button class="idx-tab" data-target="contact">
-            <span class="tab-num">03</span>
+          <button class="idx-tab" data-target="contact"
+            role="tab" id="tab-contact" aria-selected="false" aria-controls="page-contact">
+            <span class="tab-num" aria-hidden="true">03</span>
             <span class="tab-txt">Contact</span>
           </button>
         </nav>
@@ -39,35 +43,37 @@
         <!-- CARD -->
         <div class="card section-intro" id="card">
           <!-- META STRIP -->
-          <div class="card-meta">
+          <div class="card-meta" aria-hidden="true">
             <span class="card-year">Frontend Developer</span>
             <span class="card-handle">So Hye-rim</span>
           </div>
 
           <!-- PAGES -->
           <div class="card-pages" id="cardPages">
-            <!-- 00 홈 -->
-            <section class="page" id="page-intro" data-page="intro">
-              <div class="intro-frame">
+            <!-- 00 인트로 -->
+            <section class="page" id="page-intro" data-page="intro"
+              role="tabpanel" aria-labelledby="tab-intro" tabindex="0">
+              <div class="intro-frame" aria-hidden="true">
                 <span class="corner tl"></span>
                 <span class="corner tr"></span>
                 <span class="corner bl"></span>
                 <span class="corner br"></span>
               </div>
               <div class="intro-hero">
-                <span class="intro-label">Frontend Developer — 2026</span>
+                <span class="intro-label" aria-hidden="true">Frontend Developer — 2026</span>
                 <h1 class="intro-name">소혜림</h1>
                 <p class="intro-sub">Portfolio</p>
-                <div class="intro-cue">— 클릭해서 시작하기 —</div>
+                <div class="intro-cue" aria-hidden="true">— 클릭해서 시작하기 —</div>
               </div>
             </section>
 
             <!-- 01 소개 -->
-            <section class="page hidden" id="page-about" data-page="about">
+            <section class="page hidden" id="page-about" data-page="about"
+              role="tabpanel" aria-labelledby="tab-about" aria-hidden="true" tabindex="-1">
               <div class="about-top">
                 <img
                   src="images/profile-image.JPG"
-                  alt="소혜림 프로필"
+                  alt="소혜림 프로필 사진"
                   class="profile-img"
                 />
                 <div class="page-hero">
@@ -81,7 +87,7 @@
                 </div>
               </div>
               <div class="skills-area">
-                <h4 class="skills-heading">Skills</h4>
+                <h3 class="skills-heading">Skills</h3>
                 <div class="skill-rows">
                   <div class="skill-row">
                     <span class="sr-label">Publishing</span>
@@ -107,7 +113,7 @@
               </div>
 
               <div class="about-section">
-                <h4 class="skills-heading">학력 및 교육사항</h4>
+                <h3 class="skills-heading">학력 및 교육사항</h3>
                 <div class="about-table">
                   <div class="about-row">
                     <span class="about-date">2015.09 – 2023.02</span>
@@ -128,7 +134,7 @@
               </div>
 
               <div class="about-section">
-                <h4 class="skills-heading">자격사항</h4>
+                <h3 class="skills-heading">자격사항</h3>
                 <div class="about-table">
                   <div class="about-row">
                     <span class="about-name">컴퓨터그래픽스운용기능사</span>
@@ -154,11 +160,8 @@
             </section>
 
             <!-- 02 프로젝트 -->
-            <section
-              class="page hidden"
-              id="page-projects"
-              data-page="projects"
-            >
+            <section class="page hidden" id="page-projects" data-page="projects"
+              role="tabpanel" aria-labelledby="tab-projects" aria-hidden="true" tabindex="-1">
               <div class="page-hero">
                 <h2>Project</h2>
               </div>
@@ -167,7 +170,7 @@
                   <div class="proj-thumb">
                     <img
                       src="images/youus.png"
-                      alt="youus 미리보기"
+                      alt="유어스 프로젝트 화면 미리보기"
                       class="proj-img"
                     />
                   </div>
@@ -178,13 +181,15 @@
                         <a
                           href="https://github.com/FRONTENDBOOTCAMP-15th/final-08-You.us"
                           target="_blank"
-                          rel="noopener"
+                          rel="noopener noreferrer"
+                          aria-label="유어스 GitHub 저장소 (새 탭에서 열림)"
                           >GitHub ↗</a
                         >
                         <a
                           href="https://final-08-you-us-release.vercel.app/"
                           target="_blank"
-                          rel="noopener"
+                          rel="noopener noreferrer"
+                          aria-label="유어스 데모 사이트 (새 탭에서 열림)"
                           >Demo ↗</a
                         >
                       </div>
@@ -233,7 +238,7 @@
                   <div class="proj-thumb">
                     <img
                       src="images/good-day.png"
-                      alt="good-day 미리보기"
+                      alt="굿데이 프로젝트 화면 미리보기"
                       class="proj-img"
                     />
                   </div>
@@ -244,13 +249,15 @@
                         <a
                           href="https://github.com/sohyerim-dev/good-day"
                           target="_blank"
-                          rel="noopener"
+                          rel="noopener noreferrer"
+                          aria-label="굿데이 GitHub 저장소 (새 탭에서 열림)"
                           >GitHub ↗</a
                         >
                         <a
                           href="https://www.good-day-out.com"
                           target="_blank"
-                          rel="noopener"
+                          rel="noopener noreferrer"
+                          aria-label="굿데이 데모 사이트 (새 탭에서 열림)"
                           >Demo ↗</a
                         >
                       </div>
@@ -292,7 +299,8 @@
             </section>
 
             <!-- 03 연락처 -->
-            <section class="page hidden" id="page-contact" data-page="contact">
+            <section class="page hidden" id="page-contact" data-page="contact"
+              role="tabpanel" aria-labelledby="tab-contact" aria-hidden="true" tabindex="-1">
               <div class="page-hero">
                 <h2>Let's work<br />together.</h2>
                 <p>
@@ -302,33 +310,32 @@
               <nav class="contact-nav" aria-label="연락처 목록">
                 <a href="mailto:musik91@naver.com" class="contact-row">
                   <span class="cr-icon"
-                    ><img src="images/mail.png" alt="email" class="cr-icon-img"
+                    ><img src="images/mail.png" alt="" class="cr-icon-img" aria-hidden="true"
                   /></span>
                   <span class="cr-label">Email</span>
                   <span class="cr-val">musik91@naver.com</span>
-                  <span class="cr-arrow">→</span>
+                  <span class="cr-arrow" aria-hidden="true">→</span>
                 </a>
                 <a
                   href="https://github.com/sohyerim-dev"
                   class="contact-row"
                   target="_blank"
-                  rel="noopener"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub 프로필 (새 탭에서 열림)"
                 >
                   <span class="cr-icon"
-                    ><img
-                      src="images/github.png"
-                      alt="github"
-                      class="cr-icon-img"
+                    ><img src="images/github.png" alt="" class="cr-icon-img" aria-hidden="true"
                   /></span>
                   <span class="cr-label">GitHub</span>
                   <span class="cr-val">github.com/sohyerim-dev</span>
-                  <span class="cr-arrow">→</span>
+                  <span class="cr-arrow" aria-hidden="true">→</span>
                 </a>
               </nav>
             </section>
 
             <!-- 04 아웃트로 -->
-            <section class="page hidden" id="page-outro" data-page="outro">
+            <section class="page hidden" id="page-outro" data-page="outro"
+              role="tabpanel" aria-hidden="true" tabindex="-1">
               <div class="outro-hero">
                 <p class="outro-text">감사합니다.</p>
               </div>
