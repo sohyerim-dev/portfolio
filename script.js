@@ -4,13 +4,14 @@
   const tabs      = document.querySelectorAll('.idx-tab');
   const pages     = document.querySelectorAll('.page');
 
-  const ORDER = ['intro', 'about', 'projects', 'contact'];
+  const ORDER = ['intro', 'about', 'projects', 'contact', 'outro'];
   let current = 0;
   let busy = false;
 
   function updateTabs(name) {
+    const effective = name === 'outro' ? 'contact' : name;
     tabs.forEach(t => {
-      const on = t.dataset.target === name;
+      const on = t.dataset.target === effective;
       t.classList.toggle('active', on);
       t.setAttribute('aria-pressed', String(on));
     });
@@ -68,7 +69,8 @@
   cardPages.addEventListener('click', e => {
     if (e.target.closest('a, button')) return;
     if (window.innerWidth <= 600) return;
-    switchTab(ORDER[(current + 1) % ORDER.length], 'forward');
+    if (current >= ORDER.length - 1) return;
+    switchTab(ORDER[current + 1], 'forward');
   });
 
   tabs.forEach(tab => {

@@ -216,6 +216,9 @@ body::after {
 .card.section-contact {
   background: var(--c-contact-card);
 }
+.card.section-outro {
+  background: var(--c-contact-card);
+}
 
 /* ─── Meta strip ─── */
 .card-meta {
@@ -268,6 +271,23 @@ body::after {
 #page-intro {
   background: var(--c-intro-card);
 }
+#page-outro {
+  background: var(--c-contact-card);
+}
+.outro-hero {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.outro-text {
+  font-family: "SCDream", sans-serif;
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ct);
+}
+
 #page-about,
 #page-projects,
 #page-contact {
