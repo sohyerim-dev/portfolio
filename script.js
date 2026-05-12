@@ -13,7 +13,7 @@
       const angle = 4 + (depth - 1) * 1.5;
       return `translate(18%, calc(100% - ${peek}px)) rotate(${angle}deg)`;
     }
-    const peek = Math.max(44, 96 - (depth - 1) * 24);
+    const peek = Math.max(20, 44 - (depth - 1) * 12);
     const yOffset = -6 - (depth - 1) * 3;
     return `translate(calc(100% - ${peek}px), ${yOffset}%)`;
   }
