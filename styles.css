@@ -726,6 +726,18 @@ body::after {
   50%       { opacity: 0.75; }
 }
 
+/* ─── Typing cursor ─── */
+.typing-cursor {
+  display: inline;
+  font-weight: 300;
+  animation: cursor-blink 0.75s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
 /* ─── Scroll cue ─── */
 .scroll-cue {
   position: sticky;
@@ -766,7 +778,7 @@ body::after {
 ═══════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   .card { transition: none !important; }
-  .intro-cue, .scroll-cue { animation: none; opacity: 0.4; }
+  .intro-cue, .scroll-cue, .typing-cursor { animation: none; opacity: 0.4; }
   .contact-row, .project  { transition: none; }
 }
 

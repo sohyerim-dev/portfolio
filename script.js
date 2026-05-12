@@ -126,4 +126,34 @@
   requestAnimationFrame(() => requestAnimationFrame(() => {
     cards.forEach(c => { c.style.transition = ''; });
   }));
+
+  // 인트로 타이핑 효과
+  const nameEl = document.querySelector('.intro-name');
+  if (nameEl) {
+    const text = nameEl.textContent.trim();
+    nameEl.textContent = '';
+
+    const cursor = document.createElement('span');
+    cursor.className = 'typing-cursor';
+    cursor.setAttribute('aria-hidden', 'true');
+    cursor.textContent = '|';
+    nameEl.appendChild(cursor);
+
+    if (reducedMotion) {
+      nameEl.insertBefore(document.createTextNode(text), cursor);
+    } else {
+      let i = 0;
+      setTimeout(() => {
+        const timer = setInterval(() => {
+          nameEl.insertBefore(document.createTextNode(text[i]), cursor);
+          i++;
+          if (i >= text.length) {
+            clearInterval(timer);
+            cursor.style.animation = 'none';
+            cursor.style.opacity = '1';
+          }
+        }, 160);
+      }, 400);
+    }
+  }
 })();
