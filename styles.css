@@ -779,6 +779,23 @@ body::after {
   }
 }
 
+/* ─── Scroll cue ─── */
+.scroll-cue {
+  position: sticky;
+  bottom: 12px;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  pointer-events: none;
+  color: rgba(26, 26, 26, 0.28);
+  animation: scrollHint 1.6s ease-in-out infinite;
+}
+@keyframes scrollHint {
+  0%   { transform: translateY(-4px); opacity: 0.15; }
+  50%  { transform: translateY(3px);  opacity: 0.55; }
+  100% { transform: translateY(-4px); opacity: 0.15; }
+}
+
 /* ═══════════════════════════════
    RESPONSIVE
 ═══════════════════════════════ */
