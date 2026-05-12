@@ -673,13 +673,11 @@ body::after {
   gap: 3px;
 }
 .feedback-cat {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ct-2);
-  opacity: 0.7;
+  font-family: "SCDream", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ct);
 }
 
 /* ─── Contact ─── */
