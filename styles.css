@@ -548,15 +548,12 @@ body::after {
 }
 .proj-thumb {
   width: 160px;
+  height: 200px;
   flex-shrink: 0;
   border-radius: 8px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.06);
   border: 1px solid rgba(0, 0, 0, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100px;
 }
 .proj-img {
   width: 100%;
