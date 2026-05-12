@@ -895,7 +895,7 @@ body::after {
     display: none;
   }
 
-  .mob-br { display: block; }
+  .mob-br { display: inline; }
 
   /* ── About ── */
   .about-top {
