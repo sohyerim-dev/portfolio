@@ -642,8 +642,9 @@ body::after {
   font-size: 15px;
   font-weight: 700;
   color: #1a1a1a;
-  background: #ffee00;
+  background: #fbf598;
   padding: 1px 4px;
+  align-self: flex-start;
 }
 .proj-feedback ul {
   list-style: none;
@@ -820,9 +821,18 @@ body::after {
   color: rgba(26, 26, 26, 0.45);
 }
 @keyframes scrollHint {
-  0%   { transform: translateY(-4px); opacity: 0.15; }
-  50%  { transform: translateY(3px);  opacity: 0.55; }
-  100% { transform: translateY(-4px); opacity: 0.15; }
+  0% {
+    transform: translateY(-4px);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateY(3px);
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(-4px);
+    opacity: 0.15;
+  }
 }
 
 /* ═══════════════════════════════
