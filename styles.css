@@ -858,10 +858,6 @@ body::after {
   }
 }
 
-.mob-br {
-  display: none;
-}
-
 /* ─── Scroll cue ─── */
 .scroll-cue {
   position: sticky;
@@ -989,9 +985,6 @@ body::after {
   .intro-cue {
     display: none;
   }
-  .mob-br {
-    display: block;
-  }
 
   /* ── About ── */
   .about-top {
@@ -1038,9 +1031,19 @@ body::after {
     column-gap: 8px;
     align-items: baseline;
   }
-  .about-date { grid-area: date; font-size: 9px; }
-  .about-name { grid-area: name; }
-  .about-org  { grid-area: org; text-align: right; margin-left: 0; font-size: 11px; }
+  .about-date {
+    grid-area: date;
+    font-size: 9px;
+  }
+  .about-name {
+    grid-area: name;
+  }
+  .about-org {
+    grid-area: org;
+    text-align: right;
+    margin-left: 0;
+    font-size: 11px;
+  }
 
   /* ── Projects ── */
   .project {
