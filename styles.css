@@ -764,6 +764,10 @@ body::after {
 ═══════════════════════════════ */
 @media (max-width: 600px) {
   /* ── Layout ── */
+  body {
+    min-height: 100dvh;
+    align-items: flex-start;
+  }
   .scene {
     height: 100dvh;
     align-items: flex-start;
