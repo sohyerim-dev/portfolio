@@ -615,6 +615,26 @@ body::after {
   color: var(--ct-2);
   margin-bottom: 9px;
 }
+.proj-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.role-badge {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  color: #1a1a1a;
+}
+.role-pm   { background: #ffccdf; }
+.role-fe   { background: #c1e6ff; }
+.role-fs   { background: #c8f0d4; }
+.role-team { background: #e8ddc3; }
+.role-solo { background: #e8ddc3; }
+
 .proj-stack {
   display: flex;
   flex-wrap: wrap;
