@@ -29,6 +29,8 @@
     page.setAttribute('tabindex', '-1');
   }
 
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   function switchTab(targetName, forcedDir) {
     const nextIndex = ORDER.indexOf(targetName);
     if (nextIndex === current || busy) return;
@@ -42,21 +44,41 @@
     cardPages.dataset.dir = dir;
     current = nextIndex;
 
-    if (dir === 'forward') {
+    if (reducedMotion) {
+      updateTabs(targetName);
+      card.className = 'card section-' + targetName;
+      hidePage(oldPage);
       showPage(newPage);
+      busy = false;
+      return;
+    }
+
+    function cleanup(isForward) {
+      hidePage(oldPage);
+      oldPage.classList.remove('exiting');
+      oldPage.style.zIndex = '';
+      newPage.classList.remove('entering');
+      newPage.style.zIndex = '';
+      busy = false;
+    }
+
+    if (dir === 'forward') {
+      oldPage.style.zIndex = '2';
       newPage.style.zIndex = '1';
 
-      oldPage.style.zIndex = '2';
+      newPage.classList.add('entering');
+      showPage(newPage);
       oldPage.classList.add('exiting');
-      oldPage.addEventListener('animationend', () => {
+
+      let done = 0;
+      function onForwardEnd() {
+        if (++done < 2) return;
         updateTabs(targetName);
         card.className = 'card section-' + targetName;
-        hidePage(oldPage);
-        oldPage.classList.remove('exiting');
-        oldPage.style.zIndex = '';
-        newPage.style.zIndex = '';
-        busy = false;
-      }, { once: true });
+        cleanup(true);
+      }
+      oldPage.addEventListener('animationend', onForwardEnd, { once: true });
+      newPage.addEventListener('animationend', onForwardEnd, { once: true });
 
     } else {
       updateTabs(targetName);
@@ -64,15 +86,18 @@
 
       oldPage.style.zIndex = '1';
       newPage.style.zIndex = '3';
-      showPage(newPage);
+
       newPage.classList.add('entering');
-      newPage.addEventListener('animationend', () => {
-        newPage.classList.remove('entering');
-        newPage.style.zIndex = '';
-        hidePage(oldPage);
-        oldPage.style.zIndex = '';
-        busy = false;
-      }, { once: true });
+      showPage(newPage);
+      oldPage.classList.add('exiting');
+
+      let done = 0;
+      function onBackwardEnd() {
+        if (++done < 2) return;
+        cleanup(false);
+      }
+      oldPage.addEventListener('animationend', onBackwardEnd, { once: true });
+      newPage.addEventListener('animationend', onBackwardEnd, { once: true });
     }
   }
 

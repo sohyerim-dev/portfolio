@@ -246,7 +246,6 @@ body::after {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  perspective: 1000px;
 }
 
 .page {
@@ -259,7 +258,6 @@ body::after {
   gap: 22px;
   opacity: 1;
   z-index: 1;
-  backface-visibility: hidden;
   scrollbar-width: thin;
   scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
 }
@@ -770,45 +768,41 @@ body::after {
    ANIMATIONS
 ═══════════════════════════════ */
 
-/* 앞으로: opacity 없이 순수 회전 — 배경 불투명 유지하다가 -90deg에서 자연히 사라짐 */
-@keyframes foldOut {
-  from {
-    transform: rotateX(0deg);
-  }
-  to {
-    transform: rotateX(90deg);
-  }
+/* 앞으로: 현재 페이지 왼쪽 위로 튕겨 나감, 새 페이지 오른쪽에서 슬라이드인 */
+@keyframes slideOutUpperLeft {
+  from { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  to   { transform: translate(-80%, -18%) rotate(-10deg); opacity: 0; }
 }
-@keyframes foldIn {
-  from {
-    transform: rotateX(88deg);
-    opacity: 0;
-  }
-  to {
-    transform: rotateX(0deg);
-    opacity: 1;
-  }
+@keyframes slideInFromRight {
+  from { transform: translateX(105%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
 }
 
-/* 뒤로: 이전 페이지가 위에서 아래로 회전하며 내려와 덮음 */
-@keyframes foldCover {
-  from {
-    transform: rotateX(90deg);
-  }
-  to {
-    transform: rotateX(0deg);
-  }
+/* 뒤로: 현재 페이지 오른쪽으로 나감, 이전 페이지 왼쪽에서 슬라이드인 */
+@keyframes slideOutRight {
+  from { transform: translateX(0); opacity: 1; }
+  to   { transform: translateX(105%); opacity: 0; }
+}
+@keyframes slideInFromLeft {
+  from { transform: translateX(-105%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
 }
 
 .card-pages[data-dir="forward"] .page.exiting {
-  transform-origin: top center;
-  animation: foldOut 0.38s ease-in forwards;
+  animation: slideOutUpperLeft 0.38s ease-in forwards;
+  pointer-events: none;
+}
+.card-pages[data-dir="forward"] .page.entering {
+  animation: slideInFromRight 0.38s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  pointer-events: none;
+}
+.card-pages[data-dir="backward"] .page.exiting {
+  animation: slideOutRight 0.34s ease-in forwards;
   pointer-events: none;
 }
 .card-pages[data-dir="backward"] .page.entering {
-  transform-origin: top center;
-  animation: foldCover 0.38s ease-out forwards;
-  z-index: 3;
+  animation: slideInFromLeft 0.34s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  pointer-events: none;
 }
 
 @keyframes blink {
@@ -878,6 +872,8 @@ body::after {
 /* 움직임 감소 설정 존중 */
 @media (prefers-reduced-motion: reduce) {
   .card-pages[data-dir="forward"] .page.exiting,
+  .card-pages[data-dir="forward"] .page.entering,
+  .card-pages[data-dir="backward"] .page.exiting,
   .card-pages[data-dir="backward"] .page.entering {
     animation: none;
   }
