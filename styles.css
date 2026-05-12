@@ -765,11 +765,13 @@ body::after {
 @media (max-width: 600px) {
   /* ── Layout ── */
   .scene {
-    height: 100dvh;        /* 브라우저 UI 제외한 실제 보이는 높이 */
-    align-items: flex-start; /* 상단부터 배치 */
+    height: 100dvh;
+    align-items: flex-start;
+    padding: 0;
   }
   .file-wrapper {
     width: 100vw;
+    margin: 0;
   }
   .card {
     height: calc(100dvh - var(--tab-h));
