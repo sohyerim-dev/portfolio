@@ -152,8 +152,8 @@
             cursor.style.animation = 'none';
             cursor.style.opacity = '1';
           }
-        }, 160);
-      }, 400);
+        }, 320);
+      }, 600);
     }
   }
 })();
