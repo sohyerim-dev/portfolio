@@ -59,13 +59,13 @@
   --bg: #fafafa;
 
   --c-intro-card: #ffccdf;
-  --c-intro-tab:  #ffa4c6;
+  --c-intro-tab: #ffa4c6;
   --c-about-card: #fa8243;
-  --c-about-tab:  #f77530;
+  --c-about-tab: #f77530;
   --c-projects-card: #c1e6ff;
-  --c-projects-tab:  #9dd8ff;
+  --c-projects-tab: #9dd8ff;
   --c-contact-card: #eae7e0;
-  --c-contact-tab:  #e8ddc3;
+  --c-contact-tab: #e8ddc3;
 
   --ct: #1a1a1a;
   --ct-2: rgba(26, 26, 26, 0.52);
@@ -133,7 +133,7 @@ body::after {
 }
 
 .outro-note::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -14px;
   left: 50%;
@@ -199,7 +199,7 @@ body::after {
 .idx-tab {
   position: absolute;
   bottom: 0;
-  width: 112px;           /* 고정 너비 → 탭마다 동일한 크기 */
+  width: 112px; /* 고정 너비 → 탭마다 동일한 크기 */
   pointer-events: auto;
   cursor: pointer;
   padding: 9px 10px 13px;
@@ -220,15 +220,31 @@ body::after {
 }
 
 /* 고정 너비(112px) + 간격(5px) = 117px 씩 → 겹침 없이 나란히 */
-.card[data-page="intro"]    .idx-tab { left: 20px; }
-.card[data-page="about"]    .idx-tab { left: 137px; }
-.card[data-page="projects"] .idx-tab { left: 254px; }
-.card[data-page="contact"]  .idx-tab { left: 371px; }
+.card[data-page="intro"] .idx-tab {
+  left: 20px;
+}
+.card[data-page="about"] .idx-tab {
+  left: 137px;
+}
+.card[data-page="projects"] .idx-tab {
+  left: 254px;
+}
+.card[data-page="contact"] .idx-tab {
+  left: 371px;
+}
 
-.idx-tab[data-target="intro"]    { background: var(--c-intro-tab); }
-.idx-tab[data-target="about"]    { background: var(--c-about-tab); }
-.idx-tab[data-target="projects"] { background: var(--c-projects-tab); }
-.idx-tab[data-target="contact"]  { background: var(--c-contact-tab); }
+.idx-tab[data-target="intro"] {
+  background: var(--c-intro-tab);
+}
+.idx-tab[data-target="about"] {
+  background: var(--c-about-tab);
+}
+.idx-tab[data-target="projects"] {
+  background: var(--c-projects-tab);
+}
+.idx-tab[data-target="contact"] {
+  background: var(--c-contact-tab);
+}
 
 .tab-num {
   font-size: 9px;
@@ -252,7 +268,7 @@ body::after {
   box-shadow:
     0 32px 80px rgba(0, 0, 0, 0.16),
     0 8px 24px rgba(0, 0, 0, 0.08);
-  pointer-events: auto;  /* 카드바디에서 클릭 수신 */
+  pointer-events: auto; /* 카드바디에서 클릭 수신 */
   cursor: pointer;
 }
 /* 뒤에 깔린 카드 / 깊은 스택 카드는 바디 클릭 비활성 */
@@ -261,10 +277,18 @@ body::after {
   pointer-events: none;
 }
 
-.card[data-page="intro"]    .card-body { background: var(--c-intro-card); }
-.card[data-page="about"]    .card-body { background: var(--c-about-card); }
-.card[data-page="projects"] .card-body { background: var(--c-projects-card); }
-.card[data-page="contact"]  .card-body { background: var(--c-contact-card); }
+.card[data-page="intro"] .card-body {
+  background: var(--c-intro-card);
+}
+.card[data-page="about"] .card-body {
+  background: var(--c-about-card);
+}
+.card[data-page="projects"] .card-body {
+  background: var(--c-projects-card);
+}
+.card[data-page="contact"] .card-body {
+  background: var(--c-contact-card);
+}
 
 /* ─── Meta strip ─── */
 .card-meta {
@@ -416,6 +440,10 @@ body::after {
 }
 
 /* ─── 01~03 hero heading ─── */
+.mob-br {
+  display: none;
+}
+
 .page-hero {
   flex-shrink: 0;
   flex: 1;
@@ -490,9 +518,15 @@ body::after {
   color: #1a1a1a;
   letter-spacing: 0.04em;
 }
-.skill-row:nth-child(1) .sr-tags span { background: #ffccdf; }
-.skill-row:nth-child(2) .sr-tags span { background: #c1e6ff; }
-.skill-row:nth-child(3) .sr-tags span { background: #e8ddc3; }
+.skill-row:nth-child(1) .sr-tags span {
+  background: #ffccdf;
+}
+.skill-row:nth-child(2) .sr-tags span {
+  background: #c1e6ff;
+}
+.skill-row:nth-child(3) .sr-tags span {
+  background: #e8ddc3;
+}
 
 /* ─── About 자격/학력 ─── */
 .about-section {
@@ -542,7 +576,10 @@ body::after {
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(4px);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
 }
 .project:hover {
   background: rgba(255, 255, 255, 0.85);
@@ -597,7 +634,9 @@ body::after {
   border-radius: 999px;
   border: 1px solid rgba(26, 26, 26, 0.25);
   background: transparent;
-  transition: background 0.15s, border-color 0.15s;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
 }
 .proj-links a:hover {
   background: rgba(26, 26, 26, 0.08);
@@ -624,11 +663,21 @@ body::after {
   border-radius: 999px;
   color: #1a1a1a;
 }
-.role-pm   { background: #ffccdf; }
-.role-fe   { background: #c1e6ff; }
-.role-fs   { background: #c8f0d4; }
-.role-team { background: #e8ddc3; }
-.role-solo { background: #e8ddc3; }
+.role-pm {
+  background: #ffccdf;
+}
+.role-fe {
+  background: #c1e6ff;
+}
+.role-fs {
+  background: #c8f0d4;
+}
+.role-team {
+  background: #e8ddc3;
+}
+.role-solo {
+  background: #e8ddc3;
+}
 
 .proj-stack {
   display: flex;
@@ -765,15 +814,27 @@ body::after {
    ANIMATIONS
 ═══════════════════════════════ */
 @keyframes blink {
-  0%, 100% { opacity: 0.38; }
-  50%       { opacity: 0.75; }
+  0%,
+  100% {
+    opacity: 0.38;
+  }
+  50% {
+    opacity: 0.75;
+  }
 }
 
 /* ─── 모바일 탭 힌트 펄스 ─── */
 @keyframes tab-pulse {
-  0%, 100% { transform: translateY(0) scale(1); }
-  40%       { transform: translateY(-6px) scale(1.06); }
-  70%       { transform: translateY(-2px) scale(1.02); }
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  40% {
+    transform: translateY(-6px) scale(1.06);
+  }
+  70% {
+    transform: translateY(-2px) scale(1.02);
+  }
 }
 
 .tab-pulse {
@@ -788,11 +849,18 @@ body::after {
 }
 
 @keyframes cursor-blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
-.mob-br { display: none; }
+.mob-br {
+  display: none;
+}
 
 /* ─── Scroll cue ─── */
 .scroll-cue {
@@ -814,9 +882,18 @@ body::after {
   color: rgba(26, 26, 26, 0.45);
 }
 @keyframes scrollHint {
-  0%   { transform: translateY(-4px); opacity: 0.45; }
-  50%  { transform: translateY(3px);  opacity: 1; }
-  100% { transform: translateY(-4px); opacity: 0.45; }
+  0% {
+    transform: translateY(-4px);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateY(3px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-4px);
+    opacity: 0.45;
+  }
 }
 
 /* ═══════════════════════════════
@@ -833,9 +910,19 @@ body::after {
    REDUCED MOTION
 ═══════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
-  .card { transition: none !important; }
-  .intro-cue, .scroll-cue, .typing-cursor { animation: none; opacity: 0.4; }
-  .contact-row, .project  { transition: none; }
+  .card {
+    transition: none !important;
+  }
+  .intro-cue,
+  .scroll-cue,
+  .typing-cursor {
+    animation: none;
+    opacity: 0.4;
+  }
+  .contact-row,
+  .project {
+    transition: none;
+  }
 }
 
 /* ═══════════════════════════════
@@ -879,10 +966,18 @@ body::after {
   .tab-num {
     font-size: 8px;
   }
-  .card[data-page="intro"]    .idx-tab { left: 5px; }
-  .card[data-page="about"]    .idx-tab { left: 91px; }
-  .card[data-page="projects"] .idx-tab { left: 177px; }
-  .card[data-page="contact"]  .idx-tab { left: 263px; }
+  .card[data-page="intro"] .idx-tab {
+    left: 5px;
+  }
+  .card[data-page="about"] .idx-tab {
+    left: 91px;
+  }
+  .card[data-page="projects"] .idx-tab {
+    left: 177px;
+  }
+  .card[data-page="contact"] .idx-tab {
+    left: 263px;
+  }
 
   /* ── Intro ── */
   .intro-frame {
@@ -894,8 +989,9 @@ body::after {
   .intro-cue {
     display: none;
   }
-
-  .mob-br { display: inline; }
+  .mob-br {
+    display: block;
+  }
 
   /* ── About ── */
   .about-top {
@@ -929,7 +1025,9 @@ body::after {
     align-items: flex-start;
     gap: 5px;
   }
-  .sr-label { width: auto; }
+  .sr-label {
+    width: auto;
+  }
   .about-date {
     min-width: 0;
     font-size: 9px;
@@ -956,7 +1054,9 @@ body::after {
     gap: 6px;
     margin-bottom: 4px;
   }
-  .proj-hd h3 { font-size: 14px; }
+  .proj-hd h3 {
+    font-size: 14px;
+  }
   .proj-body > p {
     font-size: 12px;
     line-height: 1.6;
