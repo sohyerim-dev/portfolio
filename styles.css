@@ -1028,14 +1028,19 @@ body::after {
   .sr-label {
     width: auto;
   }
-  .about-date {
-    min-width: 0;
-    font-size: 9px;
-  }
   .about-row {
-    flex-wrap: wrap;
-    gap: 4px 8px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "date date"
+      "name org";
+    row-gap: 2px;
+    column-gap: 8px;
+    align-items: baseline;
   }
+  .about-date { grid-area: date; font-size: 9px; }
+  .about-name { grid-area: name; }
+  .about-org  { grid-area: org; text-align: right; margin-left: 0; font-size: 11px; }
 
   /* ── Projects ── */
   .project {
