@@ -664,6 +664,25 @@ body::after {
   left: 0;
   color: var(--ct-border);
 }
+.feedback-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.feedback-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.feedback-cat {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ct-2);
+  opacity: 0.7;
+}
 
 /* ─── Contact ─── */
 .contact-nav {
