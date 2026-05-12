@@ -434,6 +434,7 @@ body::after {
   line-height: 1.85;
   color: var(--ct-2);
   max-width: 440px;
+  text-align: justify;
 }
 
 /* ─── Skills ─── */
@@ -473,6 +474,12 @@ body::after {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  align-items: center;
+}
+
+.sr-tags img {
+  height: 22px;
+  display: block;
 }
 .sr-tags span {
   font-family: "JetBrains Mono", monospace;
@@ -601,6 +608,7 @@ body::after {
   line-height: 1.65;
   color: var(--ct-2);
   margin-bottom: 9px;
+  text-align: justify;
 }
 .proj-roles {
   display: flex;
