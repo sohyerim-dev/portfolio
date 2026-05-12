@@ -935,17 +935,18 @@ body::after {
     display: none;
   }
 
-  /* ── About: 프로필 이미지 + 텍스트 세로 쌓기 ── */
+  /* ── About: 이미지 옆에 h2 ── */
   .about-top {
-    flex-direction: column;
+    flex-direction: row;
+    align-items: flex-start;
     gap: 14px;
   }
   .profile-img {
-    width: 80px;
-    height: 110px;
+    width: 100px;
+    height: 136px;
   }
   .page-hero h2 {
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 8px;
   }
   .page-hero p {
