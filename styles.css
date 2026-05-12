@@ -119,6 +119,7 @@ body::after {
   font-size: clamp(28px, 4vw, 48px);
   font-weight: 700;
   color: #1a1a1a;
+  white-space: nowrap; /* left:50% 절대배치 너비 제한으로 텍스트 잘림 방지 */
   box-shadow:
     2px 4px 0 rgba(0, 0, 0, 0.06),
     4px 10px 24px rgba(0, 0, 0, 0.14);
@@ -790,11 +791,11 @@ body::after {
     border-radius: 0;
   }
   .card[data-page="intro"] .card-content {
-    padding: 18px 16px 16px;
+    padding: 18px 16px 100px;
   }
   .card-content-inset {
     margin: 7px;
-    padding: 18px 16px 16px;
+    padding: 18px 16px 100px;
   }
 
   /* ── Tabs: 모바일 고정 너비 + 위치 재조정 ── */
