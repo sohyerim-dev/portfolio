@@ -639,9 +639,13 @@ body::after {
 }
 .feedback-label {
   font-family: "SCDream", sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
-  color: var(--ct);
+  color: #1a1a1a;
+  display: inline-block;
+  padding: 5px 16px;
+  border-radius: 999px;
+  background: #ffccdf;
 }
 .proj-feedback ul {
   list-style: none;
@@ -676,7 +680,6 @@ body::after {
   font-family: "SCDream", sans-serif;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: -0.01em;
   color: var(--ct);
 }
 
