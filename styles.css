@@ -170,16 +170,19 @@ body::after {
   left: 50%;
   transform: translate(-50%, -50%) rotate(-4deg);
   background: #fff9a0;
-  padding: 48px 60px;
+  width: clamp(220px, 26vw, 320px);
+  aspect-ratio: 1 / 1;
+  padding: 32px;
   font-family: "SCDream", sans-serif;
-  font-size: clamp(28px, 4vw, 48px);
+  font-size: clamp(24px, 3.5vw, 44px);
   font-weight: 700;
   color: #1a1a1a;
-  white-space: nowrap; /* left:50% 절대배치 너비 제한으로 텍스트 잘림 방지 */
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
+  justify-content: center;
+  gap: 14px;
   box-shadow:
     2px 4px 0 rgba(0, 0, 0, 0.06),
     4px 10px 24px rgba(0, 0, 0, 0.14);

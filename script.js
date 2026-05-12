@@ -11,7 +11,7 @@
       // 모바일: 오른쪽 아래 대각선 + 기울임
       const peek = Math.max(44, 80 - (depth - 1) * 18);
       const angle = 4 + (depth - 1) * 1.5;
-      return `translate(18%, calc(100% - ${peek}px)) rotate(${angle}deg)`;
+      return `translate(8%, calc(100% - ${peek}px)) rotate(${angle}deg)`;
     }
     const peek = Math.max(20, 44 - (depth - 1) * 12);
     const yOffset = -6 - (depth - 1) * 3;
