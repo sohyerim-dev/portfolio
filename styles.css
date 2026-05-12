@@ -737,6 +737,17 @@ body::after {
   50%       { opacity: 0.75; }
 }
 
+/* ─── 모바일 탭 힌트 펄스 ─── */
+@keyframes tab-pulse {
+  0%, 100% { transform: translateY(0) scale(1); }
+  40%       { transform: translateY(-6px) scale(1.06); }
+  70%       { transform: translateY(-2px) scale(1.02); }
+}
+
+.tab-pulse {
+  animation: tab-pulse 0.55s ease-in-out 2;
+}
+
 /* ─── Typing cursor ─── */
 .typing-cursor {
   display: inline;

@@ -127,6 +127,23 @@
     cards.forEach(c => { c.style.transition = ''; });
   }));
 
+  // 모바일 탭 힌트 (로드 후 1.5초 뒤, 2회 통통)
+  if (window.innerWidth <= 600 && !reducedMotion) {
+    setTimeout(() => {
+      cards.forEach((card, i) => {
+        if (i === current) return; // 현재 카드(intro) 탭 제외
+        const tab = card.querySelector('.idx-tab');
+        if (!tab) return;
+        tab.style.animationDelay = `${(cards.length - 1 - i) * 80}ms`;
+        tab.classList.add('tab-pulse');
+        tab.addEventListener('animationend', () => {
+          tab.style.animationDelay = '';
+          tab.classList.remove('tab-pulse');
+        }, { once: true });
+      });
+    }, 1500);
+  }
+
   // 인트로 타이핑 효과
   const nameEl = document.querySelector('.intro-name');
   if (nameEl) {
