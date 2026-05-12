@@ -110,34 +110,51 @@ body::after {
 /* ─── Desk props ─── */
 .prop {
   position: absolute;
-  pointer-events: none;
+  pointer-events: auto;
   user-select: none;
   z-index: 0;
   filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.13));
+  cursor: default;
 }
 
 .prop-coffee {
+  --rot: 10deg;
   height: clamp(440px, 55vh, 640px);
   width: auto;
   right: calc(55% + min(540px, 46vw) - 10px);
   bottom: 40%;
-  transform: rotate(10deg);
+  transform: rotate(var(--rot));
 }
 
 .prop-pen {
+  --rot: 10deg;
   height: clamp(440px, 65vh, 640px);
   width: auto;
   right: calc(53% + min(540px, 46vw) - 10px);
   bottom: 18%;
-  transform: rotate(10deg);
+  transform: rotate(var(--rot));
 }
 
 .prop-book {
+  --rot: -8deg;
   height: clamp(380px, 70vh, 680px);
   width: auto;
   left: calc(53% + min(540px, 46vw) - 10px);
   bottom: 18%;
-  transform: rotate(-8deg);
+  transform: rotate(var(--rot));
+}
+
+@keyframes prop-wiggle {
+  0%   { transform: rotate(var(--rot)); }
+  18%  { transform: rotate(calc(var(--rot) + 14deg)); }
+  40%  { transform: rotate(calc(var(--rot) - 10deg)); }
+  60%  { transform: rotate(calc(var(--rot) + 6deg)); }
+  78%  { transform: rotate(calc(var(--rot) - 3deg)); }
+  100% { transform: rotate(var(--rot)); }
+}
+
+.prop:hover {
+  animation: prop-wiggle 0.6s ease-in-out;
 }
 
 @media (max-width: 1100px) {
