@@ -642,10 +642,8 @@ body::after {
   font-size: 15px;
   font-weight: 700;
   color: #1a1a1a;
-  display: inline-block;
-  padding: 5px 16px;
-  border-radius: 999px;
-  background: #ffccdf;
+  background: #ffee00;
+  padding: 1px 4px;
 }
 .proj-feedback ul {
   list-style: none;
