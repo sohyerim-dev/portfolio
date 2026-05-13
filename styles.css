@@ -145,12 +145,24 @@ body::after {
 }
 
 @keyframes prop-wiggle {
-  0%   { transform: rotate(var(--rot)); }
-  18%  { transform: rotate(calc(var(--rot) + 14deg)); }
-  40%  { transform: rotate(calc(var(--rot) - 10deg)); }
-  60%  { transform: rotate(calc(var(--rot) + 6deg)); }
-  78%  { transform: rotate(calc(var(--rot) - 3deg)); }
-  100% { transform: rotate(var(--rot)); }
+  0% {
+    transform: rotate(var(--rot));
+  }
+  18% {
+    transform: rotate(calc(var(--rot) + 12deg));
+  }
+  40% {
+    transform: rotate(calc(var(--rot) - 6deg));
+  }
+  60% {
+    transform: rotate(calc(var(--rot) + 4deg));
+  }
+  78% {
+    transform: rotate(calc(var(--rot) - 1deg));
+  }
+  100% {
+    transform: rotate(var(--rot));
+  }
 }
 
 .prop:hover {
