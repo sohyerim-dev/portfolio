@@ -190,6 +190,27 @@
                       <span>Next.js</span><span>TypeScript</span
                       ><span>Tailwind CSS</span><span>Zustand</span>
                     </div>
+                    <div class="proj-trouble">
+                      <span class="trouble-label">트러블슈팅</span>
+                      <div class="trouble-item">
+                        <div class="trouble-row">
+                          <span class="trouble-tag">증상</span>
+                          <p>모바일 환경에서 결제 창이 팝업이 아닌 페이지 이동 방식으로 동작하면서, 결제 이후 기존 주문 상태가 유지되지 않는 문제가 발생했습니다.</p>
+                        </div>
+                        <div class="trouble-row">
+                          <span class="trouble-tag">원인</span>
+                          <p>페이지 리다이렉트 과정에서 기존 상태(주문 데이터)가 초기화되어 결제 완료 후 주문 처리가 정상적으로 이어지지 않았습니다.</p>
+                        </div>
+                        <div class="trouble-row">
+                          <span class="trouble-tag">해결</span>
+                          <p>결제 요청 전에 주문 데이터를 sessionStorage에 저장하고, /checkout/mobile-payment 리다이렉트 페이지에서 결제 성공 여부를 확인한 뒤 해당 데이터를 기반으로 주문 처리를 수행하도록 구현했습니다.</p>
+                        </div>
+                        <div class="trouble-row">
+                          <span class="trouble-tag">결과</span>
+                          <p>페이지 이동 상황에서도 결제 상태와 주문 데이터를 안정적으로 유지할 수 있도록 개선하여, 모바일 결제 흐름의 안정성과 사용자 경험을 향상시켰습니다.</p>
+                        </div>
+                      </div>
+                    </div>
                     <div class="proj-feedback">
                       <span class="feedback-label">팀원 피드백</span>
                       <div class="feedback-groups">
@@ -331,6 +352,27 @@
                       <span>Next.js</span><span>TypeScript</span
                       ><span>Tailwind CSS</span><span>Zustand</span
                       ><span>Supabase</span>
+                    </div>
+                    <div class="proj-trouble">
+                      <span class="trouble-label">트러블슈팅</span>
+                      <div class="trouble-item">
+                        <div class="trouble-row">
+                          <span class="trouble-tag">증상</span>
+                          <p>useSearchParams()를 사용하는 로그인 페이지에서 Error occurred prerendering page "/login" 오류가 발생하며 Vercel 빌드가 실패했습니다.</p>
+                        </div>
+                        <div class="trouble-row">
+                          <span class="trouble-tag">원인</span>
+                          <p>클라이언트 전용 훅인 useSearchParams()가 &lt;Suspense&gt; 없이 정적 프리렌더링 대상에 포함되면서, 빌드 시점에 실행되어 오류가 발생했습니다.</p>
+                        </div>
+                        <div class="trouble-row">
+                          <span class="trouble-tag">해결</span>
+                          <p>로그인 폼을 클라이언트 컴포넌트(LoginForm.tsx)로 분리하고, page.tsx에서 &lt;Suspense&gt;로 감싸 렌더링 시점을 제어했습니다.</p>
+                        </div>
+                        <div class="trouble-row">
+                          <span class="trouble-tag">결과</span>
+                          <p>프리렌더링 오류를 방지하여 빌드가 정상적으로 완료되었고, 안정적으로 배포할 수 있도록 개선했습니다.</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </article>

@@ -817,6 +817,45 @@ body::after {
   color: var(--ct);
 }
 
+/* ─── Troubleshooting ─── */
+.proj-trouble {
+  border-top: 1px solid var(--ct-border);
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.trouble-label {
+  font-family: "SCDream", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  background: #ffc5c5;
+  padding: 1px 4px;
+  align-self: flex-start;
+}
+.trouble-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.trouble-row {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.trouble-tag {
+  flex-shrink: 0;
+  font-weight: 700;
+  color: var(--ct);
+  width: 28px;
+}
+.trouble-row p {
+  color: var(--ct-2);
+  margin: 0;
+}
+
 /* ─── Contact ─── */
 .contact-nav {
   display: flex;
