@@ -30,6 +30,7 @@
         if (i < current) {
           card.classList.add('behind');
           card.classList.remove('pushed-deep');
+          card.querySelector('.idx-tab')?.classList.remove('tab-pulse');
         } else {
           card.classList.remove('behind', 'pushed-deep');
         }
@@ -38,8 +39,8 @@
         card.style.zIndex = 20 - depth;
         card.style.transform = reducedMotion ? 'translateX(110%)' : getPushedTransform(depth);
         card.classList.remove('behind');
-        // depth > 1이면 클릭 비활성 (LIFO: 가장 최근 것만 복귀 가능)
         card.classList.toggle('pushed-deep', depth > 1);
+        card.querySelector('.idx-tab')?.classList.remove('tab-pulse');
       }
     });
   }
