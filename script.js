@@ -99,7 +99,6 @@
         setTimeout(() => {
           returningCard.style.zIndex = 10;
           busy = false;
-          hintContactTab();
         }, 450);
       }
     });
@@ -130,7 +129,7 @@
         current++;
         render(true);
         returningCard.style.zIndex = 25;
-        setTimeout(() => { returningCard.style.zIndex = 10; busy = false; hintContactTab(); }, 450);
+        setTimeout(() => { returningCard.style.zIndex = 10; busy = false; }, 450);
       }
     });
   });
