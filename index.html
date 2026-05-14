@@ -373,6 +373,20 @@
                           <p>프리렌더링 오류를 방지하여 빌드가 정상적으로 완료되었고, 안정적으로 배포할 수 있도록 개선했습니다.</p>
                         </div>
                       </div>
+                      <div class="trouble-item">
+                        <div class="trouble-row">
+                          <span class="trouble-tag">증상</span>
+                          <p>코스 편집 화면에서 장소 순서를 드래그로 변경하려 하면 드래그가 되지 않고 화면 스크롤만 발생. 드래그 핸들(이미지) 길게 누를 경우 이미지가 새 탭으로 열리거나 저장 팝업이 뜨는 문제도 발생.</p>
+                        </div>
+                        <div class="trouble-row">
+                          <span class="trouble-tag">원인</span>
+                          <p>@dnd-kit/core 기본 PointerSensor가 마우스 기반이라 모바일 터치를 스크롤과 구분하지 못함. &lt;img&gt; 요소의 long-press 기본 동작이 드래그 핸들에 간섭하고, touch-action 미설정으로 드래그 중 스크롤이 재개되는 문제가 복합적으로 작용.</p>
+                        </div>
+                        <div class="trouble-row">
+                          <span class="trouble-tag">해결</span>
+                          <p>TouchSensor를 추가하고 activationConstraint(delay: 250ms, tolerance: 5)로 스크롤과 드래그를 구분. 핸들에 touch-action: none 적용, 이미지에 draggable={false}·pointer-events: none으로 기본 드래그 비활성화. onContextMenu preventDefault와 -webkit-touch-callout: none으로 long-press 메뉴 차단.</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </article>

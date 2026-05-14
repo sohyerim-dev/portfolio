@@ -855,6 +855,11 @@ body::after {
   color: var(--ct-2);
   margin: 0;
 }
+.trouble-item + .trouble-item {
+  border-top: 1px dashed var(--ct-border);
+  padding-top: 8px;
+  margin-top: 4px;
+}
 
 /* ─── Contact ─── */
 .contact-nav {
