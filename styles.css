@@ -538,7 +538,7 @@ body::after {
 .card[data-page="about"] .page-hero p {
   max-width: none;
 }
-.bio-tagline {
+p.bio-tagline {
   font-family: "SCDream", sans-serif;
   font-size: 22px;
   font-weight: 700;
