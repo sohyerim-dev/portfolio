@@ -535,6 +535,17 @@ body::after {
   max-width: 440px;
   text-align: justify;
 }
+.card[data-page="about"] .page-hero p {
+  max-width: none;
+}
+.bio-tagline {
+  font-family: "SCDream", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ct);
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
 
 /* ─── Skills ─── */
 .skills-area {
@@ -603,13 +614,35 @@ body::after {
   background: #fa8243;
   border-radius: 2px;
 }
+.skill-bar-track,
 .skill-bar-score {
-  font-family: "JetBrains Mono", monospace;
+  display: none;
+}
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.skill-desc {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 2px;
+  margin-bottom: 4px;
+}
+.skill-desc li {
   font-size: 10px;
   color: var(--ct-2);
-  flex-shrink: 0;
-  width: 30px;
-  text-align: right;
+  line-height: 1.55;
+  padding-left: 10px;
+  position: relative;
+}
+.skill-desc li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: rgba(250, 130, 67, 0.7);
 }
 
 /* ─── About 자격/학력 ─── */
@@ -645,7 +678,40 @@ body::after {
 .about-table {
   display: flex;
   flex-direction: column;
+  gap: 14px;
+}
+.edu-item {
+  display: flex;
+  flex-direction: column;
   gap: 6px;
+}
+.edu-hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+.edu-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.edu-name {
+  font-family: "SCDream", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ct);
+}
+.edu-course {
+  font-size: 11.5px;
+  color: var(--ct-2);
+}
+.edu-date {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  color: var(--ct-2);
+  flex-shrink: 0;
+  padding-top: 2px;
 }
 .about-row {
   display: flex;
@@ -898,6 +964,62 @@ body::after {
   border-top: 1px dashed var(--ct-border);
   padding-top: 8px;
   margin-top: 4px;
+}
+.trouble-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--ct);
+  line-height: 1.5;
+  margin-bottom: 2px;
+}
+
+/* ─── Project sections ─── */
+.proj-intro {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ct);
+  line-height: 1.4;
+}
+.proj-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.proj-section-label {
+  font-family: "SCDream", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  background: #c1e6ff;
+  padding: 1px 4px;
+  align-self: flex-start;
+}
+.proj-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-left: 2px;
+}
+.proj-bullets li {
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--ct-2);
+  padding-left: 12px;
+  position: relative;
+}
+.proj-bullets li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--ct-border);
+}
+.proj-learned {
+  border-top: 1px solid var(--ct-border);
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 /* ─── Contact ─── */

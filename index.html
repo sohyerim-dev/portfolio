@@ -148,7 +148,7 @@
                   </div>
                   <div class="proj-body">
                     <div class="proj-hd">
-                      <h3>유어스 (You, Us) - 팀 프로젝트</h3>
+                      <h3>유어스 (You, Us) - 팀 프로젝트 (4인)</h3>
                       <div class="proj-links">
                         <a
                           href="https://github.com/FRONTENDBOOTCAMP-15th/final-08-You.us"
@@ -171,21 +171,27 @@
                       <span class="role-badge role-fe">Frontend</span>
                       <span class="role-badge role-team">팀 4인</span>
                     </div>
-                    <p>
-                      기존 쇼핑몰은 카테고리·가격 필터 중심이라, 사용자가 원하는
-                      상품을 찾기 위해 직접 탐색해야 하는 구조입니다. 유어스는
-                      이 문제를 해결하기 위해, 받는 사람·상황·예산을 선택형
-                      질문으로 입력하면 AI가 이를 분석해 맞춤 상품을 추천하는
-                      선물 쇼핑 서비스입니다.<br />OpenAI API를 활용해 입력값을
-                      태그화하고, 조건에 맞는 상품을 카드 형태로 제공하도록
-                      설계했습니다. AI를 단순한 부가 기능이 아닌, 추천 경험의
-                      핵심 로직으로 구조에 녹여낸 점이 특징입니다. 백엔드는
-                      제공된 API 서버를 활용하여, 프론트엔드 중심으로 사용자
-                      경험과 데이터 흐름 설계에 집중했습니다.<br />4인 팀
-                      프로젝트에서 PM을 맡아 일정 관리, 우선순위 설정, 팀
-                      커뮤니케이션을 주도했으며, 인트로 · AI 추천 테스트 ·
-                      로그인 · 회원가입 · 주문/결제 페이지를 직접 구현했습니다.
-                    </p>
+                    <p class="proj-intro">AI 설문 기반 선물 추천 커머스 플랫폼</p>
+                    <div class="proj-section">
+                      <span class="proj-section-label">핵심 구현 기능</span>
+                      <ul class="proj-bullets">
+                        <li>OpenAI API 기반 설문 응답 분석 및 추천 기능 구현</li>
+                        <li>인증(Auth) 기반 회원가입 및 로그인 기능 구현</li>
+                        <li>카드 결제 API 연동 및 주문·결제 흐름 구현</li>
+                        <li>선택형 설문 UI를 적용해 사용자 입력 흐름 개선</li>
+                        <li>Intro / 인증 / 주문·결제 페이지 구현</li>
+                        <li>사용자 흐름 기반 상태 관리 및 API 연동</li>
+                      </ul>
+                    </div>
+                    <div class="proj-section">
+                      <span class="proj-section-label">주요 역할</span>
+                      <ul class="proj-bullets">
+                        <li>PM 및 프론트엔드 개발 담당</li>
+                        <li>프로젝트 일정 관리 및 기능 우선순위 조율</li>
+                        <li>데일리 스크럼 진행 및 협업 흐름 관리</li>
+                        <li>주요 사용자 흐름 및 화면 구조 설계</li>
+                      </ul>
+                    </div>
                     <div class="proj-stack">
                       <span>Next.js</span><span>TypeScript</span
                       ><span>Tailwind CSS</span><span>Zustand</span>
@@ -193,107 +199,21 @@
                     <div class="proj-trouble">
                       <span class="trouble-label">트러블슈팅</span>
                       <div class="trouble-item">
-                        <div class="trouble-row">
-                          <span class="trouble-tag">증상</span>
-                          <p>모바일 환경에서 결제 창이 팝업이 아닌 페이지 이동 방식으로 동작하면서, 결제 이후 기존 주문 상태가 유지되지 않는 문제가 발생했습니다.</p>
-                        </div>
-                        <div class="trouble-row">
-                          <span class="trouble-tag">원인</span>
-                          <p>페이지 리다이렉트 과정에서 기존 상태(주문 데이터)가 초기화되어 결제 완료 후 주문 처리가 정상적으로 이어지지 않았습니다.</p>
-                        </div>
-                        <div class="trouble-row">
-                          <span class="trouble-tag">해결</span>
-                          <p>결제 요청 전에 주문 데이터를 sessionStorage에 저장하고, /checkout/mobile-payment 리다이렉트 페이지에서 결제 성공 여부를 확인한 뒤 해당 데이터를 기반으로 주문 처리를 수행하도록 구현했습니다.</p>
-                        </div>
-                        <div class="trouble-row">
-                          <span class="trouble-tag">결과</span>
-                          <p>페이지 이동 상황에서도 결제 상태와 주문 데이터를 안정적으로 유지할 수 있도록 개선하여, 모바일 결제 흐름의 안정성과 사용자 경험을 향상시켰습니다.</p>
-                        </div>
+                        <p class="trouble-title">모바일 결제 리다이렉트 환경에서 주문 상태 유지 문제 해결</p>
+                        <ul class="proj-bullets">
+                          <li>모바일 결제 시 페이지 이동 과정에서 주문 상태가 초기화되는 문제 발생</li>
+                          <li>결제 요청 전 주문 데이터를 sessionStorage에 저장하도록 구현</li>
+                          <li>/checkout/mobile-payment 리다이렉트 페이지에서 결제 성공 여부 확인 후 주문 처리 수행</li>
+                          <li>페이지 이동 상황에서도 결제 상태 및 주문 데이터를 안정적으로 유지하도록 개선</li>
+                        </ul>
                       </div>
                     </div>
-                    <div class="proj-feedback">
-                      <span class="feedback-label">팀원 피드백</span>
-                      <div class="feedback-groups">
-                        <div class="feedback-group">
-                          <span class="feedback-cat">리더십 &amp; 책임감</span>
-                          <ul>
-                            <li>
-                              PM 역할을 수행하며 일정 관리, 데일리 스크럼, 팀원
-                              의견 조율을 주도적으로 이끌어 프로젝트를
-                              안정적으로 완수
-                            </li>
-                            <li>
-                              목표 설정부터 일정 조율, 실행까지 전반적인 흐름을
-                              책임지고 끝까지 이끌어가는 모습이 인상적이었다는
-                              평가
-                            </li>
-                            <li>
-                              맡은 역할에 대한 책임감이 강해 별도의 개선이
-                              필요하지 않을 정도로 신뢰를 받음
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="feedback-group">
-                          <span class="feedback-cat">문제 해결 능력</span>
-                          <ul>
-                            <li>
-                              개발 중 발생한 기술적 문제에 대해 능동적으로 해결
-                              방안을 제시하며 일정 지연을 최소화
-                            </li>
-                            <li>
-                              기술적 난관 상황에서도 대안을 빠르게 찾아 팀의
-                              개발 흐름을 유지
-                            </li>
-                            <li>
-                              팀 내에서 많은 에러를 발견하고 동시에 해결까지
-                              이끌어낸 핵심 기여자
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="feedback-group">
-                          <span class="feedback-cat">협업 &amp; 팀 기여</span>
-                          <ul>
-                            <li>
-                              본인의 역할을 넘어 공동 작업과 팀 전반에
-                              적극적으로 기여
-                            </li>
-                            <li>
-                              모르는 부분을 먼저 챙기고 팀원들을 도와주는 태도가
-                              인상적이었다는 피드백
-                            </li>
-                            <li>
-                              팀 분위기를 긍정적으로 이끌며 협업 효율을 높이는
-                              데 기여
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="feedback-group">
-                          <span class="feedback-cat">개발 태도 &amp; 역량</span>
-                          <ul>
-                            <li>
-                              개발에 대한 높은 이해도와 꾸준히 노력하는 태도가
-                              돋보인다는 평가
-                            </li>
-                            <li>
-                              높은 열정과 학습 의지로 업무에 진지하게 임하는
-                              모습이 인상적
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="feedback-group">
-                          <span class="feedback-cat">추진력</span>
-                          <ul>
-                            <li>
-                              초기 기획 및 일정 수립 단계에서 강한 추진력으로
-                              프로젝트 방향을 빠르게 정립
-                            </li>
-                            <li>
-                              빠른 실행력 덕분에 전체 일정이 안정적으로 유지될
-                              수 있었다는 평가
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
+                    <div class="proj-learned">
+                      <span class="proj-section-label">What I Learned</span>
+                      <ul class="proj-bullets">
+                        <li>사용자 경험과 서비스 흐름을 함께 고려하며 기능을 설계하는 경험의 중요성을 배웠습니다.</li>
+                        <li>기술 구현뿐 아니라 일정 조율과 협업 흐름 관리 역시 프로젝트 완성도에 큰 영향을 준다는 점을 경험했습니다.</li>
+                      </ul>
                     </div>
                   </div>
                 </article>
@@ -307,7 +227,7 @@
                   </div>
                   <div class="proj-body">
                     <div class="proj-hd">
-                      <h3>굿데이 (Good Day) - 개인 프로젝트</h3>
+                      <h3>굿데이(Good Day) - 개인 프로젝트</h3>
                       <div class="proj-links">
                         <a
                           href="https://github.com/sohyerim-dev/good-day"
@@ -330,24 +250,27 @@
                       <span class="role-badge role-fs">Fullstack</span>
                       <span class="role-badge role-solo">개인</span>
                     </div>
-                    <p>
-                      친구들과의 약속이나 여행을 준비할 때, 여러 장소를 정리하고
-                      동선을 계획하는 과정이 번거롭다는 점에서 출발한
-                      프로젝트입니다. 굿데이는 장소를 탐색하고, 나만의 코스를
-                      구성해 공유할 수 있는 서비스입니다.<br />네이버 장소
-                      검색을 통해 원하는 장소를 추가하고, 드래그 앤 드롭으로
-                      방문 순서를 자유롭게 구성할 수 있습니다. 완성된 코스는
-                      지도 기반으로 시각화되며, 도보·대중교통 경로를 구간별로
-                      안내합니다. 또한 URL 공유 시 OG 메타 정보를 포함해,
-                      카카오톡 등에서 직관적인 미리보기가 제공됩니다.<br />Supabase(PostgreSQL
-                      + Auth + RLS)를 활용해 백엔드를 직접 설계했으며, 인증 기반
-                      데이터 접근 제어와 세션 유지 방식까지 고려해 실제 서비스
-                      수준의 구조를 구현했습니다.<br />개발 과정에서 Google
-                      Maps, TMap, 네이버 검색 API 등 다양한 외부 API를 연동하며
-                      CORS 처리, 서버/클라이언트 환경 분리, 인증 방식 차이를
-                      직접 경험했고, Next.js App Router의 generateMetadata를
-                      활용해 SSR 기반 OG 메타 생성까지 구현했습니다.
-                    </p>
+                    <p class="proj-intro">장소 검색부터 코스 생성, 경로 탐색, 공유까지 하나의 흐름으로 연결한 코스 플래닝 웹 서비스</p>
+                    <div class="proj-section">
+                      <span class="proj-section-label">핵심 구현 기능</span>
+                      <ul class="proj-bullets">
+                        <li>네이버 장소검색 API 기반 장소 검색 및 코스 추가 기능 구현</li>
+                        <li>Google Maps API / TMap API 연동을 통한 도보·대중교통 경로 안내 기능 구현</li>
+                        <li>Drag &amp; Drop 기반 방문 순서 변경 UI 구현</li>
+                        <li>Supabase Auth 기반 회원가입 및 로그인 기능 구현</li>
+                        <li>Row Level Security(RLS)를 적용한 사용자별 데이터 접근 제어 구성</li>
+                        <li>Zustand 기반 코스 생성 흐름 상태 관리</li>
+                        <li>OG 메타데이터 적용을 통한 공유 미리보기 기능 구현</li>
+                      </ul>
+                    </div>
+                    <div class="proj-section">
+                      <span class="proj-section-label">기술적 경험</span>
+                      <ul class="proj-bullets">
+                        <li>외부 지도 API 연동 및 비동기 데이터 처리 경험</li>
+                        <li>사용자 흐름 기반 상태 관리 및 UI 설계 경험</li>
+                        <li>인증, 데이터베이스, 권한 제어를 포함한 서비스 구조 설계 경험</li>
+                      </ul>
+                    </div>
                     <div class="proj-stack">
                       <span>Next.js</span><span>TypeScript</span
                       ><span>Tailwind CSS</span><span>Zustand</span
@@ -356,37 +279,21 @@
                     <div class="proj-trouble">
                       <span class="trouble-label">트러블슈팅</span>
                       <div class="trouble-item">
-                        <div class="trouble-row">
-                          <span class="trouble-tag">증상</span>
-                          <p>useSearchParams()를 사용하는 로그인 페이지에서 Error occurred prerendering page "/login" 오류가 발생하며 Vercel 빌드가 실패했습니다.</p>
-                        </div>
-                        <div class="trouble-row">
-                          <span class="trouble-tag">원인</span>
-                          <p>클라이언트 전용 훅인 useSearchParams()가 &lt;Suspense&gt; 없이 정적 프리렌더링 대상에 포함되면서, 빌드 시점에 실행되어 오류가 발생했습니다.</p>
-                        </div>
-                        <div class="trouble-row">
-                          <span class="trouble-tag">해결</span>
-                          <p>로그인 폼을 클라이언트 컴포넌트(LoginForm.tsx)로 분리하고, page.tsx에서 &lt;Suspense&gt;로 감싸 렌더링 시점을 제어했습니다.</p>
-                        </div>
-                        <div class="trouble-row">
-                          <span class="trouble-tag">결과</span>
-                          <p>프리렌더링 오류를 방지하여 빌드가 정상적으로 완료되었고, 안정적으로 배포할 수 있도록 개선했습니다.</p>
-                        </div>
+                        <p class="trouble-title">Next.js prerender 오류 해결</p>
+                        <ul class="proj-bullets">
+                          <li>useSearchParams()를 사용하는 로그인 페이지에서 Vercel 빌드 실패 발생</li>
+                          <li>클라이언트 전용 훅이 &lt;Suspense&gt; 없이 정적 프리렌더링 대상이 되며 오류 발생</li>
+                          <li>로그인 폼을 LoginForm.tsx 클라이언트 컴포넌트로 분리하고 &lt;Suspense&gt;로 감싸 렌더링 시점 제어</li>
+                          <li>빌드 오류 없이 정상 배포 가능하도록 개선</li>
+                        </ul>
                       </div>
-                      <div class="trouble-item">
-                        <div class="trouble-row">
-                          <span class="trouble-tag">증상</span>
-                          <p>코스 편집 화면에서 장소 순서를 드래그로 변경하려 하면 드래그가 되지 않고 화면 스크롤만 발생. 드래그 핸들(이미지) 길게 누를 경우 이미지가 새 탭으로 열리거나 저장 팝업이 뜨는 문제도 발생.</p>
-                        </div>
-                        <div class="trouble-row">
-                          <span class="trouble-tag">원인</span>
-                          <p>@dnd-kit/core 기본 PointerSensor가 마우스 기반이라 모바일 터치를 스크롤과 구분하지 못함. &lt;img&gt; 요소의 long-press 기본 동작이 드래그 핸들에 간섭하고, touch-action 미설정으로 드래그 중 스크롤이 재개되는 문제가 복합적으로 작용.</p>
-                        </div>
-                        <div class="trouble-row">
-                          <span class="trouble-tag">해결</span>
-                          <p>TouchSensor를 추가하고 activationConstraint(delay: 250ms, tolerance: 5)로 스크롤과 드래그를 구분. 핸들에 touch-action: none 적용, 이미지에 draggable={false}·pointer-events: none으로 기본 드래그 비활성화. onContextMenu preventDefault와 -webkit-touch-callout: none으로 long-press 메뉴 차단.</p>
-                        </div>
-                      </div>
+                    </div>
+                    <div class="proj-learned">
+                      <span class="proj-section-label">What I Learned</span>
+                      <ul class="proj-bullets">
+                        <li>기능 구현보다 사용자 흐름과 상태 관리 구조를 함께 설계하는 경험의 중요성을 배웠습니다.</li>
+                        <li>다양한 외부 API와 인증 구조를 실제 서비스 흐름에 연결하며 서비스 개발 경험을 확장할 수 있었습니다.</li>
+                      </ul>
                     </div>
                   </div>
                 </article>
@@ -431,101 +338,204 @@
                     안녕하세요,<br />프론트엔드 개발자<br />
                     소혜림입니다.
                   </h2>
+                  <p class="bio-tagline">"빠르게 이해하고, 끝까지 구현합니다."</p>
                   <p>
-                    서비스를 직접 기획하고 구현하며, 전체 흐름을 구조적으로
-                    이해하는 프론트엔드 개발자입니다. 프로젝트를 빠르게
-                    파악하고, 문제의 핵심을 정의해 필요한 기능을 명확히 설계하는
-                    데 강점이 있습니다.<br /><br />아이디어를 실제로 동작하는
-                    서비스로 구현하는 과정에서 가치를 느끼며, 사용자 경험에
-                    영향을 주는 디테일까지 집요하게 다듬습니다.
+                    서비스를 단순히 화면 단위로 구현하기보다, 사용자 흐름과 전체
+                    구조를 함께 이해하며 문제를 해결하는 데 강점이 있습니다.<br /><br />
+                    프로젝트를 진행할 때는 기능 구현에만 머무르지 않고 "왜 이
+                    흐름이 필요한가", "사용자는 어디서 불편함을 느끼는가"를 함께
+                    고민합니다. 실제 프로젝트에서는 OpenAI API, 인증(Auth), 결제
+                    시스템, 지도 API 등을 직접 연동하며 서비스 전반의 흐름을
+                    구현해왔습니다.<br /><br />
+                    또한 팀 프로젝트에서는 PL·PM 역할을 맡아 일정 조율, 기능
+                    우선순위 정리, 협업 흐름 관리까지 경험했습니다. 기술적인
+                    문제뿐 아니라 프로젝트 전체가 안정적으로 완성될 수 있도록
+                    방향을 정리하고 조율하는 역할에 흥미를 느낍니다.<br /><br />
+                    새로운 기술 역시 단순히 학습하는 데 그치지 않고, 직접
+                    구현하고 부딪히며 빠르게 이해하고 적용하는 개발자이고자
+                    합니다.
                   </p>
                 </div>
               </div>
-              <div class="about-story">
-                <div class="story-block">
-                  <h4 class="story-heading">문제를 구조적으로 해결하고, 사용자 경험을 개선하는 프론트엔드 개발자</h4>
-                  <p>음악을 전공했지만 다양한 분야에 대한 관심 속에서 자연스럽게 컴퓨터와 개발에 흥미를 가지게 되었고, 개인 홈페이지 제작을 계기로 프론트엔드 개발을 시작하게 되었습니다. 이후 프로그래밍을 처음 접하며 논리적인 사고로 문제를 해결하고 기능을 구현하는 과정에 큰 매력을 느꼈습니다.</p>
-                  <p>웹 퍼블리싱과 프론트엔드 교육 과정을 거치며 수많은 시행착오를 경험했지만, 문제의 원인을 분석하고 해결해 나가는 과정에서 오히려 성취감과 재미를 느끼며 개발자로서의 방향을 확립하게 되었습니다.</p>
-                  <p>특히 프론트엔드는 사용자의 경험과 가장 가까운 영역에서 서비스를 개선할 수 있다는 점에서 큰 매력을 느끼고 있습니다. 사용자의 입장에서 더 직관적인 흐름을 고민하고 이를 실제 기능으로 구현하는 과정이 저의 성향과도 잘 맞습니다.</p>
-                  <p>또한 부트캠프 팀 프로젝트에서 PL과 PM 역할을 맡으며 팀의 진행 상황을 조율하고 문제를 해결하는 경험을 쌓았습니다. 일정 지연이나 참여 불균형과 같은 상황에서도 역할을 재조정하고 우선순위를 정리하며 프로젝트를 완주하는 데 집중했습니다.</p>
-                  <p>이러한 경험을 바탕으로, 기술을 빠르게 학습하고 실제 문제 해결로 연결하며 팀과 서비스의 방향을 함께 만들어가는 프론트엔드 개발자로 성장하고자 합니다.</p>
-                </div>
-              </div>
               <div class="skills-area">
-                <h3 class="skills-heading">기술스택</h3>
+                <h3 class="skills-heading">Tech Experience</h3>
                 <div class="skill-bars-grid">
                   <div class="skill-bars-col">
                     <div class="skill-bars-label">Frontend</div>
                     <div class="skill-bar-rows">
-                      <div class="skill-bar-row">
-                        <span class="skill-bar-name">HTML / CSS</span>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:100%"></div></div>
-                        <span class="skill-bar-score">10/10</span>
+                      <div class="skill-item">
+                        <div class="skill-bar-row">
+                          <span class="skill-bar-name">HTML / CSS</span>
+                          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:100%"></div></div>
+                          <span class="skill-bar-score">10/10</span>
+                        </div>
+                        <ul class="skill-desc">
+                          <li>시맨틱 태그 기반 웹 페이지 구조 설계</li>
+                          <li>Flex/Grid를 활용한 반응형 레이아웃 구현</li>
+                          <li>애니메이션 및 인터랙션 UI 구현</li>
+                          <li>접근성을 고려한 마크업 작성</li>
+                        </ul>
                       </div>
-                      <div class="skill-bar-row">
-                        <span class="skill-bar-name">Tailwind CSS</span>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:100%"></div></div>
-                        <span class="skill-bar-score">10/10</span>
+                      <div class="skill-item">
+                        <div class="skill-bar-row">
+                          <span class="skill-bar-name">Tailwind CSS</span>
+                          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:100%"></div></div>
+                          <span class="skill-bar-score">10/10</span>
+                        </div>
+                        <ul class="skill-desc">
+                          <li>반응형 UI 및 디자인 시스템 구성</li>
+                          <li>컴포넌트 단위 스타일 설계</li>
+                          <li>커스텀 클래스 및 유틸리티를 활용한 스타일 관리</li>
+                        </ul>
                       </div>
-                      <div class="skill-bar-row">
-                        <span class="skill-bar-name">JavaScript</span>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:80%"></div></div>
-                        <span class="skill-bar-score">8/10</span>
+                      <div class="skill-item">
+                        <div class="skill-bar-row">
+                          <span class="skill-bar-name">JavaScript</span>
+                          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:80%"></div></div>
+                          <span class="skill-bar-score">8/10</span>
+                        </div>
+                        <ul class="skill-desc">
+                          <li>비동기 API 통신 및 데이터 처리</li>
+                          <li>DOM 이벤트 기반 인터랙션 구현</li>
+                          <li>사용자 흐름 기반 동적 UI 제어</li>
+                        </ul>
                       </div>
-                      <div class="skill-bar-row">
-                        <span class="skill-bar-name">TypeScript</span>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:70%"></div></div>
-                        <span class="skill-bar-score">7/10</span>
+                      <div class="skill-item">
+                        <div class="skill-bar-row">
+                          <span class="skill-bar-name">TypeScript</span>
+                          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:70%"></div></div>
+                          <span class="skill-bar-score">7/10</span>
+                        </div>
+                        <ul class="skill-desc">
+                          <li>API 응답 타입 및 공통 타입 정의</li>
+                          <li>Props 및 상태 타입 안정성 관리</li>
+                          <li>제네릭을 활용한 재사용 가능한 컴포넌트 설계</li>
+                        </ul>
                       </div>
-                      <div class="skill-bar-row">
-                        <span class="skill-bar-name">React</span>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:80%"></div></div>
-                        <span class="skill-bar-score">8/10</span>
+                      <div class="skill-item">
+                        <div class="skill-bar-row">
+                          <span class="skill-bar-name">React</span>
+                          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:80%"></div></div>
+                          <span class="skill-bar-score">8/10</span>
+                        </div>
+                        <ul class="skill-desc">
+                          <li>컴포넌트 기반 UI 구조 설계</li>
+                          <li>Custom Hook을 활용한 로직 분리</li>
+                          <li>상태 기반 동적 렌더링 구현</li>
+                          <li>폼 관리 및 사용자 입력 처리</li>
+                        </ul>
                       </div>
-                      <div class="skill-bar-row">
-                        <span class="skill-bar-name">Next.js</span>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:80%"></div></div>
-                        <span class="skill-bar-score">8/10</span>
+                      <div class="skill-item">
+                        <div class="skill-bar-row">
+                          <span class="skill-bar-name">Next.js</span>
+                          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:80%"></div></div>
+                          <span class="skill-bar-score">8/10</span>
+                        </div>
+                        <ul class="skill-desc">
+                          <li>App Router 기반 프로젝트 구조 설계</li>
+                          <li>CSR/SSR 렌더링 차이를 고려한 페이지 구성</li>
+                          <li>동적 라우팅 및 메타데이터 구성</li>
+                          <li>Vercel 배포 및 빌드 이슈 해결</li>
+                        </ul>
                       </div>
-                      <div class="skill-bar-row">
-                        <span class="skill-bar-name">Zustand</span>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:70%"></div></div>
-                        <span class="skill-bar-score">7/10</span>
+                      <div class="skill-item">
+                        <div class="skill-bar-row">
+                          <span class="skill-bar-name">Zustand</span>
+                          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:70%"></div></div>
+                          <span class="skill-bar-score">7/10</span>
+                        </div>
+                        <ul class="skill-desc">
+                          <li>전역 상태 관리 구조 설계</li>
+                          <li>불필요한 렌더링 최소화</li>
+                        </ul>
+                      </div>
+                      <div class="skill-item">
+                        <div class="skill-bar-row">
+                          <span class="skill-bar-name">React Query</span>
+                          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:60%"></div></div>
+                          <span class="skill-bar-score">6/10</span>
+                        </div>
+                        <ul class="skill-desc">
+                          <li>서버 상태 캐싱 및 비동기 데이터 관리</li>
+                          <li>로딩/에러 상태 처리 및 UX 개선</li>
+                        </ul>
                       </div>
                     </div>
                   </div>
                   <div class="skill-bars-col">
                     <div class="skill-bars-label">Tools</div>
                     <div class="skill-bar-rows">
-                      <div class="skill-bar-row">
-                        <span class="skill-bar-name">Supabase</span>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:50%"></div></div>
-                        <span class="skill-bar-score">5/10</span>
+                      <div class="skill-item">
+                        <div class="skill-bar-row">
+                          <span class="skill-bar-name">Supabase</span>
+                          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:50%"></div></div>
+                          <span class="skill-bar-score">5/10</span>
+                        </div>
+                        <ul class="skill-desc">
+                          <li>인증(Auth) 및 로그인 기능 구현</li>
+                          <li>Database 연동 및 CRUD 기능 구현</li>
+                          <li>Storage를 활용한 이미지 업로드 구현</li>
+                        </ul>
                       </div>
-                      <div class="skill-bar-row">
-                        <span class="skill-bar-name">Git / GitHub</span>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:80%"></div></div>
-                        <span class="skill-bar-score">8/10</span>
+                      <div class="skill-item">
+                        <div class="skill-bar-row">
+                          <span class="skill-bar-name">Git / GitHub</span>
+                          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:80%"></div></div>
+                          <span class="skill-bar-score">8/10</span>
+                        </div>
+                        <ul class="skill-desc">
+                          <li>브랜치 전략 기반 협업</li>
+                          <li>PR 및 코드 리뷰 경험</li>
+                          <li>Git Flow 기반 버전 관리</li>
+                          <li>충돌 해결 및 협업 이슈 관리</li>
+                        </ul>
                       </div>
-                      <div class="skill-bar-row">
-                        <span class="skill-bar-name">Figma</span>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:70%"></div></div>
-                        <span class="skill-bar-score">7/10</span>
+                      <div class="skill-item">
+                        <div class="skill-bar-row">
+                          <span class="skill-bar-name">Figma</span>
+                          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:70%"></div></div>
+                          <span class="skill-bar-score">7/10</span>
+                        </div>
+                        <ul class="skill-desc">
+                          <li>와이어프레임 및 UI 설계</li>
+                          <li>디자인 시스템 및 컴포넌트 구조 설계</li>
+                          <li>기획 내용을 기반으로 직접 UI 구성</li>
+                        </ul>
                       </div>
-                      <div class="skill-bar-row">
-                        <span class="skill-bar-name">Vite</span>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:70%"></div></div>
-                        <span class="skill-bar-score">7/10</span>
+                      <div class="skill-item">
+                        <div class="skill-bar-row">
+                          <span class="skill-bar-name">Vite</span>
+                          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:70%"></div></div>
+                          <span class="skill-bar-score">7/10</span>
+                        </div>
+                        <ul class="skill-desc">
+                          <li>React 프로젝트 환경 구성</li>
+                          <li>환경 변수 및 빌드 설정 관리</li>
+                        </ul>
                       </div>
-                      <div class="skill-bar-row">
-                        <span class="skill-bar-name">Photoshop</span>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:70%"></div></div>
-                        <span class="skill-bar-score">7/10</span>
+                      <div class="skill-item">
+                        <div class="skill-bar-row">
+                          <span class="skill-bar-name">Photoshop</span>
+                          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:70%"></div></div>
+                          <span class="skill-bar-score">7/10</span>
+                        </div>
+                        <ul class="skill-desc">
+                          <li>웹 서비스에 필요한 그래픽 리소스 제작 및 편집</li>
+                          <li>UI 구성에 활용되는 이미지 보정 및 리사이징</li>
+                          <li>프로젝트 컨셉에 맞는 배너 및 비주얼 제작</li>
+                        </ul>
                       </div>
-                      <div class="skill-bar-row">
-                        <span class="skill-bar-name">Illustrator</span>
-                        <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:80%"></div></div>
-                        <span class="skill-bar-score">8/10</span>
+                      <div class="skill-item">
+                        <div class="skill-bar-row">
+                          <span class="skill-bar-name">Illustrator</span>
+                          <div class="skill-bar-track"><div class="skill-bar-fill" style="--pct:80%"></div></div>
+                          <span class="skill-bar-score">8/10</span>
+                        </div>
+                        <ul class="skill-desc">
+                          <li>서비스 로고 및 아이콘 제작</li>
+                          <li>벡터 기반 그래픽 작업</li>
+                          <li>프로젝트 브랜딩에 필요한 디자인 요소 제작</li>
+                        </ul>
                       </div>
                     </div>
                   </div>
@@ -534,15 +544,34 @@
               <div class="about-section">
                 <h3 class="skills-heading">교육사항</h3>
                 <div class="about-table">
-                  <div class="about-row">
-                    <span class="about-date">2022.05 – 2022.08</span>
-                    <span class="about-name">아카데미정글</span>
-                    <span class="about-org">웹 퍼블리싱 과정</span>
+                  <div class="edu-item">
+                    <div class="edu-hd">
+                      <div class="edu-left">
+                        <span class="edu-name">멋쟁이사자처럼 부트캠프</span>
+                        <span class="edu-course">웹 프론트엔드 엔지니어 과정</span>
+                      </div>
+                      <span class="edu-date">2025.08 – 2026.02</span>
+                    </div>
+                    <ul class="skill-desc">
+                      <li>React, Next.js, TypeScript 기반 프론트엔드 개발 학습</li>
+                      <li>두 번의 팀 프로젝트에서 PL/PM 역할 수행 및 협업 경험</li>
+                      <li>API 연동, 상태 관리, 반응형 UI 구현 경험</li>
+                      <li>서비스 기획부터 구현·배포까지 전체 개발 과정 경험</li>
+                    </ul>
                   </div>
-                  <div class="about-row">
-                    <span class="about-date">2025.08 – 2026.02</span>
-                    <span class="about-name">멋쟁이사자처럼 부트캠프</span>
-                    <span class="about-org">웹 프론트엔드 엔지니어 과정</span>
+                  <div class="edu-item">
+                    <div class="edu-hd">
+                      <div class="edu-left">
+                        <span class="edu-name">아카데미정글</span>
+                        <span class="edu-course">웹 퍼블리싱 과정</span>
+                      </div>
+                      <span class="edu-date">2022.05 – 2022.08</span>
+                    </div>
+                    <ul class="skill-desc">
+                      <li>HTML/CSS 기반 웹 퍼블리싱 및 반응형 웹 구현 학습</li>
+                      <li>웹 접근성과 시맨틱 마크업 구조 작성 경험</li>
+                      <li>UI 구현 및 인터랙션 퍼블리싱 경험</li>
+                    </ul>
                   </div>
                 </div>
               </div>
