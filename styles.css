@@ -693,8 +693,10 @@ body::after {
 }
 .edu-left {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 .edu-name {
   font-family: "SCDream", sans-serif;
