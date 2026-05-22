@@ -992,9 +992,6 @@ p.bio-tagline {
   font-size: 15px;
   font-weight: 700;
   color: #1a1a1a;
-  background: #c1e6ff;
-  padding: 1px 4px;
-  align-self: flex-start;
 }
 .proj-bullets {
   list-style: none;
