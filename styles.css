@@ -746,8 +746,8 @@ p.bio-tagline {
 }
 .project {
   display: flex;
-  gap: 18px;
-  padding: 16px 18px;
+  gap: 22px;
+  padding: 22px 24px;
   border: 1px solid rgba(26, 26, 26, 0.08);
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.6);
@@ -765,7 +765,7 @@ p.bio-tagline {
 }
 .proj-thumb {
   width: 220px;
-  height: 300px;
+  height: 340px;
   flex-shrink: 0;
   border-radius: 8px;
   overflow: hidden;
@@ -783,19 +783,19 @@ p.bio-tagline {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 10px;
 }
 .proj-hd {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 7px;
+  margin-bottom: 4px;
 }
 .proj-hd h3 {
   font-family: "SCDream", sans-serif;
-  font-size: 16px;
+  font-size: 19px;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 .proj-links {
   display: flex;
@@ -938,7 +938,7 @@ p.bio-tagline {
   background: none;
   border: none;
   border-bottom: 2px solid transparent;
-  padding: 5px 9px 7px;
+  padding: 6px 12px 9px;
   margin-bottom: -1px;
   cursor: pointer;
   letter-spacing: 0.03em;
@@ -955,13 +955,13 @@ p.bio-tagline {
 }
 .proj-slides {
   flex: 1;
-  min-height: 130px;
+  min-height: 180px;
 }
 .proj-slide {
   display: none;
   flex-direction: column;
-  gap: 8px;
-  padding-top: 10px;
+  gap: 12px;
+  padding-top: 14px;
 }
 .proj-slide.active {
   display: flex;
@@ -1016,19 +1016,19 @@ p.bio-tagline {
   margin-top: 4px;
 }
 .trouble-title {
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--ct);
   line-height: 1.5;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 /* ─── Project sections ─── */
 .proj-intro {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--ct);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 .proj-section {
   display: flex;
@@ -1045,14 +1045,14 @@ p.bio-tagline {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 7px;
   padding-left: 2px;
 }
 .proj-bullets li {
-  font-size: 11.5px;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.7;
   color: var(--ct-2);
-  padding-left: 12px;
+  padding-left: 14px;
   position: relative;
 }
 .proj-bullets li::before {
