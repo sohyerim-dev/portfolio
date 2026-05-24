@@ -171,49 +171,56 @@
                       <span class="role-badge role-fe">Frontend</span>
                       <span class="role-badge role-team">팀 4인</span>
                     </div>
-                    <p class="proj-intro">AI 설문 기반 선물 추천 커머스 플랫폼</p>
-                    <div class="proj-section">
-                      <span class="proj-section-label">핵심 구현 기능</span>
-                      <ul class="proj-bullets">
-                        <li>OpenAI API 기반 설문 응답 분석 및 추천 기능 구현</li>
-                        <li>인증(Auth) 기반 회원가입 및 로그인 기능 구현</li>
-                        <li>카드 결제 API 연동 및 주문·결제 흐름 구현</li>
-                        <li>선택형 설문 UI를 적용해 사용자 입력 흐름 개선</li>
-                        <li>Intro / 인증 / 주문·결제 페이지 구현</li>
-                        <li>사용자 흐름 기반 상태 관리 및 API 연동</li>
-                      </ul>
-                    </div>
-                    <div class="proj-section">
-                      <span class="proj-section-label">주요 역할</span>
-                      <ul class="proj-bullets">
-                        <li>PM 및 프론트엔드 개발 담당</li>
-                        <li>프로젝트 일정 관리 및 기능 우선순위 조율</li>
-                        <li>데일리 스크럼 진행 및 협업 흐름 관리</li>
-                        <li>주요 사용자 흐름 및 화면 구조 설계</li>
-                      </ul>
-                    </div>
-                    <div class="proj-stack">
-                      <span>Next.js</span><span>TypeScript</span
-                      ><span>Tailwind CSS</span><span>Zustand</span>
-                    </div>
-                    <div class="proj-trouble">
-                      <span class="trouble-label">트러블슈팅</span>
-                      <div class="trouble-item">
-                        <p class="trouble-title">모바일 결제 리다이렉트 환경에서 주문 상태 유지 문제 해결</p>
+                    <nav class="proj-slides-nav" aria-label="프로젝트 섹션">
+                      <button class="slide-tab active" data-slide="0">소개</button>
+                      <button class="slide-tab" data-slide="1">핵심 기능</button>
+                      <button class="slide-tab" data-slide="2">주요 역할</button>
+                      <button class="slide-tab" data-slide="3">트러블슈팅</button>
+                      <button class="slide-tab" data-slide="4">What I Learned</button>
+                    </nav>
+                    <div class="proj-slides">
+                      <div class="proj-slide active">
+                        <p class="proj-intro">AI 설문 기반 선물 추천 커머스 플랫폼</p>
+                        <div class="proj-stack">
+                          <span>Next.js</span><span>TypeScript</span
+                          ><span>Tailwind CSS</span><span>Zustand</span>
+                        </div>
+                      </div>
+                      <div class="proj-slide">
                         <ul class="proj-bullets">
-                          <li>모바일 결제 시 페이지 이동 과정에서 주문 상태가 초기화되는 문제 발생</li>
-                          <li>결제 요청 전 주문 데이터를 sessionStorage에 저장하도록 구현</li>
-                          <li>/checkout/mobile-payment 리다이렉트 페이지에서 결제 성공 여부 확인 후 주문 처리 수행</li>
-                          <li>페이지 이동 상황에서도 결제 상태 및 주문 데이터를 안정적으로 유지하도록 개선</li>
+                          <li>OpenAI API 기반 설문 응답 분석 및 추천 기능 구현</li>
+                          <li>인증(Auth) 기반 회원가입 및 로그인 기능 구현</li>
+                          <li>카드 결제 API 연동 및 주문·결제 흐름 구현</li>
+                          <li>선택형 설문 UI를 적용해 사용자 입력 흐름 개선</li>
+                          <li>Intro / 인증 / 주문·결제 페이지 구현</li>
+                          <li>사용자 흐름 기반 상태 관리 및 API 연동</li>
                         </ul>
                       </div>
-                    </div>
-                    <div class="proj-learned">
-                      <span class="proj-section-label">What I Learned</span>
-                      <ul class="proj-bullets">
-                        <li>사용자 경험과 서비스 흐름을 함께 고려하며 기능을 설계하는 경험의 중요성을 배웠습니다.</li>
-                        <li>기술 구현뿐 아니라 일정 조율과 협업 흐름 관리 역시 프로젝트 완성도에 큰 영향을 준다는 점을 경험했습니다.</li>
-                      </ul>
+                      <div class="proj-slide">
+                        <ul class="proj-bullets">
+                          <li>PM 및 프론트엔드 개발 담당</li>
+                          <li>프로젝트 일정 관리 및 기능 우선순위 조율</li>
+                          <li>데일리 스크럼 진행 및 협업 흐름 관리</li>
+                          <li>주요 사용자 흐름 및 화면 구조 설계</li>
+                        </ul>
+                      </div>
+                      <div class="proj-slide">
+                        <div class="trouble-item">
+                          <p class="trouble-title">모바일 결제 리다이렉트 환경에서 주문 상태 유지 문제 해결</p>
+                          <ul class="proj-bullets">
+                            <li>모바일 결제 시 페이지 이동 과정에서 주문 상태가 초기화되는 문제 발생</li>
+                            <li>결제 요청 전 주문 데이터를 sessionStorage에 저장하도록 구현</li>
+                            <li>/checkout/mobile-payment 리다이렉트 페이지에서 결제 성공 여부 확인 후 주문 처리 수행</li>
+                            <li>페이지 이동 상황에서도 결제 상태 및 주문 데이터를 안정적으로 유지하도록 개선</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="proj-slide">
+                        <ul class="proj-bullets">
+                          <li>사용자 경험과 서비스 흐름을 함께 고려하며 기능을 설계하는 경험의 중요성을 배웠습니다.</li>
+                          <li>기술 구현뿐 아니라 일정 조율과 협업 흐름 관리 역시 프로젝트 완성도에 큰 영향을 준다는 점을 경험했습니다.</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </article>
@@ -257,50 +264,57 @@
                       <span class="role-badge role-fs">Fullstack</span>
                       <span class="role-badge role-solo">개인</span>
                     </div>
-                    <p class="proj-intro">장소 검색부터 코스 생성, 경로 탐색, 공유까지 하나의 흐름으로 연결한 코스 플래닝 웹 서비스</p>
-                    <div class="proj-section">
-                      <span class="proj-section-label">핵심 구현 기능</span>
-                      <ul class="proj-bullets">
-                        <li>네이버 장소검색 API 기반 장소 검색 및 코스 추가 기능 구현</li>
-                        <li>Google Maps API / TMap API 연동을 통한 도보·대중교통 경로 안내 기능 구현</li>
-                        <li>Drag &amp; Drop 기반 방문 순서 변경 UI 구현</li>
-                        <li>Supabase Auth 기반 회원가입 및 로그인 기능 구현</li>
-                        <li>Row Level Security(RLS)를 적용한 사용자별 데이터 접근 제어 구성</li>
-                        <li>Zustand 기반 코스 생성 흐름 상태 관리</li>
-                        <li>OG 메타데이터 적용을 통한 공유 미리보기 기능 구현</li>
-                      </ul>
-                    </div>
-                    <div class="proj-section">
-                      <span class="proj-section-label">기술적 경험</span>
-                      <ul class="proj-bullets">
-                        <li>외부 지도 API 연동 및 비동기 데이터 처리 경험</li>
-                        <li>사용자 흐름 기반 상태 관리 및 UI 설계 경험</li>
-                        <li>인증, 데이터베이스, 권한 제어를 포함한 서비스 구조 설계 경험</li>
-                      </ul>
-                    </div>
-                    <div class="proj-stack">
-                      <span>Next.js</span><span>TypeScript</span
-                      ><span>Tailwind CSS</span><span>Zustand</span
-                      ><span>Supabase</span>
-                    </div>
-                    <div class="proj-trouble">
-                      <span class="trouble-label">트러블슈팅</span>
-                      <div class="trouble-item">
-                        <p class="trouble-title">Next.js prerender 오류 해결</p>
+                    <nav class="proj-slides-nav" aria-label="프로젝트 섹션">
+                      <button class="slide-tab active" data-slide="0">소개</button>
+                      <button class="slide-tab" data-slide="1">핵심 기능</button>
+                      <button class="slide-tab" data-slide="2">기술적 경험</button>
+                      <button class="slide-tab" data-slide="3">트러블슈팅</button>
+                      <button class="slide-tab" data-slide="4">What I Learned</button>
+                    </nav>
+                    <div class="proj-slides">
+                      <div class="proj-slide active">
+                        <p class="proj-intro">장소 검색부터 코스 생성, 경로 탐색, 공유까지 하나의 흐름으로 연결한 코스 플래닝 웹 서비스</p>
+                        <div class="proj-stack">
+                          <span>Next.js</span><span>TypeScript</span
+                          ><span>Tailwind CSS</span><span>Zustand</span
+                          ><span>Supabase</span>
+                        </div>
+                      </div>
+                      <div class="proj-slide">
                         <ul class="proj-bullets">
-                          <li>useSearchParams()를 사용하는 로그인 페이지에서 Vercel 빌드 실패 발생</li>
-                          <li>클라이언트 전용 훅이 &lt;Suspense&gt; 없이 정적 프리렌더링 대상이 되며 오류 발생</li>
-                          <li>로그인 폼을 LoginForm.tsx 클라이언트 컴포넌트로 분리하고 &lt;Suspense&gt;로 감싸 렌더링 시점 제어</li>
-                          <li>빌드 오류 없이 정상 배포 가능하도록 개선</li>
+                          <li>네이버 장소검색 API 기반 장소 검색 및 코스 추가 기능 구현</li>
+                          <li>Google Maps API / TMap API 연동을 통한 도보·대중교통 경로 안내 기능 구현</li>
+                          <li>Drag &amp; Drop 기반 방문 순서 변경 UI 구현</li>
+                          <li>Supabase Auth 기반 회원가입 및 로그인 기능 구현</li>
+                          <li>Row Level Security(RLS)를 적용한 사용자별 데이터 접근 제어 구성</li>
+                          <li>Zustand 기반 코스 생성 흐름 상태 관리</li>
+                          <li>OG 메타데이터 적용을 통한 공유 미리보기 기능 구현</li>
                         </ul>
                       </div>
-                    </div>
-                    <div class="proj-learned">
-                      <span class="proj-section-label">What I Learned</span>
-                      <ul class="proj-bullets">
-                        <li>기능 구현보다 사용자 흐름과 상태 관리 구조를 함께 설계하는 경험의 중요성을 배웠습니다.</li>
-                        <li>다양한 외부 API와 인증 구조를 실제 서비스 흐름에 연결하며 서비스 개발 경험을 확장할 수 있었습니다.</li>
-                      </ul>
+                      <div class="proj-slide">
+                        <ul class="proj-bullets">
+                          <li>외부 지도 API 연동 및 비동기 데이터 처리 경험</li>
+                          <li>사용자 흐름 기반 상태 관리 및 UI 설계 경험</li>
+                          <li>인증, 데이터베이스, 권한 제어를 포함한 서비스 구조 설계 경험</li>
+                        </ul>
+                      </div>
+                      <div class="proj-slide">
+                        <div class="trouble-item">
+                          <p class="trouble-title">Next.js prerender 오류 해결</p>
+                          <ul class="proj-bullets">
+                            <li>useSearchParams()를 사용하는 로그인 페이지에서 Vercel 빌드 실패 발생</li>
+                            <li>클라이언트 전용 훅이 &lt;Suspense&gt; 없이 정적 프리렌더링 대상이 되며 오류 발생</li>
+                            <li>로그인 폼을 LoginForm.tsx 클라이언트 컴포넌트로 분리하고 &lt;Suspense&gt;로 감싸 렌더링 시점 제어</li>
+                            <li>빌드 오류 없이 정상 배포 가능하도록 개선</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="proj-slide">
+                        <ul class="proj-bullets">
+                          <li>기능 구현보다 사용자 흐름과 상태 관리 구조를 함께 설계하는 경험의 중요성을 배웠습니다.</li>
+                          <li>다양한 외부 API와 인증 구조를 실제 서비스 흐름에 연결하며 서비스 개발 경험을 확장할 수 있었습니다.</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </article>
@@ -336,7 +350,7 @@
             <div class="card-content card-content-inset">
               <div class="about-top">
                 <img
-                  src="images/profile-image.JPG"
+                  src="images/character.png"
                   alt="소혜림 프로필 사진"
                   class="profile-img"
                 />

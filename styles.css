@@ -502,11 +502,10 @@ body::after {
 }
 
 .profile-img {
-  width: 150px;
-  height: 200px;
+  width: 300px;
+  height: auto;
   border-radius: 12px;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
   flex-shrink: 0;
 }
 
@@ -924,6 +923,55 @@ p.bio-tagline {
   color: var(--ct);
 }
 
+/* ─── Project slides ─── */
+.proj-slides-nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--ct-border);
+  flex-shrink: 0;
+}
+.slide-tab {
+  font-family: "SCDream", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ct-2);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 5px 9px 7px;
+  margin-bottom: -1px;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+.slide-tab:hover {
+  color: var(--ct);
+}
+.slide-tab.active {
+  color: var(--ct);
+  font-weight: 700;
+  border-bottom-color: var(--ct);
+}
+.proj-slides {
+  flex: 1;
+  min-height: 130px;
+}
+.proj-slide {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 10px;
+}
+.proj-slide.active {
+  display: flex;
+}
+.proj-slide .trouble-item {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
 /* ─── Troubleshooting ─── */
 .proj-trouble {
   border-top: 1px solid var(--ct-border);
@@ -1263,13 +1311,13 @@ p.bio-tagline {
 
   /* ── About ── */
   .about-top {
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     gap: 14px;
   }
   .profile-img {
-    width: 100px;
-    height: 136px;
+    width: 200px;
+    height: auto;
   }
   .page-hero h2 {
     font-size: 20px;

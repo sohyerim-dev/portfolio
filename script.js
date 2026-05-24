@@ -156,6 +156,22 @@
     }, 1500);
   }
 
+  // 프로젝트 슬라이드 탭 전환
+  document.querySelectorAll('.project').forEach(project => {
+    const tabs = project.querySelectorAll('.slide-tab');
+    const slides = project.querySelectorAll('.proj-slide');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', e => {
+        e.stopPropagation();
+        const idx = parseInt(tab.dataset.slide);
+        tabs.forEach(t => t.classList.remove('active'));
+        slides.forEach(s => s.classList.remove('active'));
+        tab.classList.add('active');
+        slides[idx].classList.add('active');
+      });
+    });
+  });
+
   // 인트로 타이핑 효과
   const nameEl = document.querySelector('.intro-name');
   if (nameEl) {
