@@ -80,7 +80,7 @@
   // 카드바디 클릭 → 한 장 앞으로 / LIFO 복귀 (데스크톱만)
   cards.forEach((card, i) => {
     card.querySelector('.card-body').addEventListener('click', e => {
-      if (e.target.closest('a, button')) return;
+      if (e.target.closest('a, button, .proj-thumb, .proj-slides')) return;
       if (busy) return;
       if (window.innerWidth <= 600) return; // 모바일: 카드바디 클릭 비활성 (스크롤 허용)
 
