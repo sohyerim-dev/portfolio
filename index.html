@@ -224,14 +224,7 @@
                     </div>
                   </div>
                 </article>
-                <article class="project">
-                  <div class="proj-thumb">
-                    <img
-                      src="images/good-day.png"
-                      alt="굿데이 프로젝트 화면 미리보기"
-                      class="proj-img"
-                    />
-                  </div>
+                <article class="project project--img-slides">
                   <div class="proj-body">
                     <div class="proj-hd">
                       <h3>굿데이(Good Day) - 개인 프로젝트</h3>
@@ -264,58 +257,29 @@
                       <span class="role-badge role-fs">Fullstack</span>
                       <span class="role-badge role-solo">개인</span>
                     </div>
-                    <nav class="proj-slides-nav" aria-label="프로젝트 섹션">
-                      <button class="slide-tab active" data-slide="0">소개</button>
-                      <button class="slide-tab" data-slide="1">핵심 기능</button>
-                      <button class="slide-tab" data-slide="2">기술적 경험</button>
-                      <button class="slide-tab" data-slide="3">트러블슈팅</button>
-                      <button class="slide-tab" data-slide="4">What I Learned</button>
-                    </nav>
-                    <div class="proj-slides">
-                      <div class="proj-slide active">
-                        <p class="proj-intro">장소 검색부터 코스 생성, 경로 탐색, 공유까지 하나의 흐름으로 연결한 코스 플래닝 웹 서비스</p>
-                        <div class="proj-stack">
-                          <span>Next.js</span><span>TypeScript</span
-                          ><span>Tailwind CSS</span><span>Zustand</span
-                          ><span>Supabase</span>
-                        </div>
-                      </div>
-                      <div class="proj-slide">
-                        <ul class="proj-bullets">
-                          <li>네이버 장소검색 API 기반 장소 검색 및 코스 추가 기능 구현</li>
-                          <li>Google Maps API / TMap API 연동을 통한 도보·대중교통 경로 안내 기능 구현</li>
-                          <li>Drag &amp; Drop 기반 방문 순서 변경 UI 구현</li>
-                          <li>Supabase Auth 기반 회원가입 및 로그인 기능 구현</li>
-                          <li>Row Level Security(RLS)를 적용한 사용자별 데이터 접근 제어 구성</li>
-                          <li>Zustand 기반 코스 생성 흐름 상태 관리</li>
-                          <li>OG 메타데이터 적용을 통한 공유 미리보기 기능 구현</li>
-                        </ul>
-                      </div>
-                      <div class="proj-slide">
-                        <ul class="proj-bullets">
-                          <li>외부 지도 API 연동 및 비동기 데이터 처리 경험</li>
-                          <li>사용자 흐름 기반 상태 관리 및 UI 설계 경험</li>
-                          <li>인증, 데이터베이스, 권한 제어를 포함한 서비스 구조 설계 경험</li>
-                        </ul>
-                      </div>
-                      <div class="proj-slide">
-                        <div class="trouble-item">
-                          <p class="trouble-title">Next.js prerender 오류 해결</p>
-                          <ul class="proj-bullets">
-                            <li>useSearchParams()를 사용하는 로그인 페이지에서 Vercel 빌드 실패 발생</li>
-                            <li>클라이언트 전용 훅이 &lt;Suspense&gt; 없이 정적 프리렌더링 대상이 되며 오류 발생</li>
-                            <li>로그인 폼을 LoginForm.tsx 클라이언트 컴포넌트로 분리하고 &lt;Suspense&gt;로 감싸 렌더링 시점 제어</li>
-                            <li>빌드 오류 없이 정상 배포 가능하도록 개선</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="proj-slide">
-                        <ul class="proj-bullets">
-                          <li>기능 구현보다 사용자 흐름과 상태 관리 구조를 함께 설계하는 경험의 중요성을 배웠습니다.</li>
-                          <li>다양한 외부 API와 인증 구조를 실제 서비스 흐름에 연결하며 서비스 개발 경험을 확장할 수 있었습니다.</li>
-                        </ul>
-                      </div>
+                  </div>
+                  <div class="proj-thumb">
+                    <div class="proj-img-slider">
+                      <img src="images/project-good-day/project-good-day-0.png" class="proj-img active" alt="" aria-hidden="true" />
+                      <img src="images/project-good-day/project-good-day-1.png" class="proj-img" alt="" aria-hidden="true" />
+                      <img src="images/project-good-day/project-good-day-2.png" class="proj-img" alt="" aria-hidden="true" />
+                      <img src="images/project-good-day/project-good-day-3.png" class="proj-img" alt="" aria-hidden="true" />
+                      <img src="images/project-good-day/project-good-day-4.png" class="proj-img" alt="" aria-hidden="true" />
+                      <img src="images/project-good-day/project-good-day-5.png" class="proj-img" alt="" aria-hidden="true" />
+                      <img src="images/project-good-day/project-good-day-6.png" class="proj-img" alt="" aria-hidden="true" />
+                      <img src="images/project-good-day/project-good-day-7.png" class="proj-img" alt="" aria-hidden="true" />
+                      <img src="images/project-good-day/project-good-day-8.png" class="proj-img" alt="" aria-hidden="true" />
+                      <img src="images/project-good-day/project-good-day-9.png" class="proj-img" alt="" aria-hidden="true" />
+                      <img src="images/project-good-day/project-good-day-10.png" class="proj-img" alt="" aria-hidden="true" />
+                      <img src="images/project-good-day/project-good-day-11.png" class="proj-img" alt="" aria-hidden="true" />
                     </div>
+                    <button class="slider-btn slider-prev" aria-label="이전 이미지">
+                      <svg width="8" height="14" viewBox="0 0 8 14" fill="none" aria-hidden="true"><path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <button class="slider-btn slider-next" aria-label="다음 이미지">
+                      <svg width="8" height="14" viewBox="0 0 8 14" fill="none" aria-hidden="true"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <span class="slider-counter">1 / 12</span>
                   </div>
                 </article>
               </div>

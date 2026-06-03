@@ -771,6 +771,7 @@ p.bio-tagline {
   overflow: hidden;
   background: rgba(0, 0, 0, 0.06);
   border: 1px solid rgba(0, 0, 0, 0.08);
+  position: relative;
 }
 .proj-img {
   width: 100%;
@@ -778,6 +779,60 @@ p.bio-tagline {
   object-fit: cover;
   object-position: center top;
   display: block;
+}
+.proj-img-slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.proj-img-slider .proj-img {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.proj-img-slider .proj-img.active {
+  opacity: 1;
+}
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  transition: background 0.15s;
+  color: var(--ct);
+}
+.slider-btn:hover {
+  background: #fff;
+}
+.slider-prev { left: 6px; }
+.slider-next { right: 6px; }
+.slider-counter {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  z-index: 3;
+  pointer-events: none;
+  white-space: nowrap;
 }
 .proj-body {
   flex: 1;
@@ -921,6 +976,23 @@ p.bio-tagline {
   font-size: 12px;
   font-weight: 700;
   color: var(--ct);
+}
+
+/* ─── Project image-slide layout ─── */
+.project--img-slides {
+  flex-direction: column;
+  gap: 12px;
+}
+.project--img-slides .proj-body {
+  gap: 6px;
+}
+.project--img-slides .proj-thumb {
+  width: 100%;
+  height: 420px;
+}
+.project--img-slides .proj-img-slider .proj-img {
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.03);
 }
 
 /* ─── Project slides ─── */

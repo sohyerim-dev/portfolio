@@ -156,6 +156,26 @@
     }, 1500);
   }
 
+  // 프로젝트 썸네일 이미지 슬라이더
+  document.querySelectorAll('.proj-thumb').forEach(thumb => {
+    const imgs = thumb.querySelectorAll('.proj-img-slider .proj-img');
+    if (!imgs.length) return;
+    const counter = thumb.querySelector('.slider-counter');
+    const prevBtn = thumb.querySelector('.slider-prev');
+    const nextBtn = thumb.querySelector('.slider-next');
+    let cur = 0;
+
+    function goTo(idx) {
+      imgs[cur].classList.remove('active');
+      cur = (idx + imgs.length) % imgs.length;
+      imgs[cur].classList.add('active');
+      if (counter) counter.textContent = `${cur + 1} / ${imgs.length}`;
+    }
+
+    prevBtn?.addEventListener('click', e => { e.stopPropagation(); goTo(cur - 1); });
+    nextBtn?.addEventListener('click', e => { e.stopPropagation(); goTo(cur + 1); });
+  });
+
   // 프로젝트 슬라이드 탭 전환
   document.querySelectorAll('.project').forEach(project => {
     const tabs = project.querySelectorAll('.slide-tab');
